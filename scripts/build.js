@@ -212,6 +212,7 @@ function recipePage(tarif) {
         <div class="recipe-title-row">
           <h1>${esc(tarif.ad)}</h1>
           <button class="info-btn" id="historyOpen" aria-label="${esc(tarif.ad)} tarihçesini oku">i</button>
+          ${tarif.ipuclari && tarif.ipuclari.length ? `<a href="#puf-noktalari" class="info-btn tips-btn" aria-label="Püf noktalarına git">💡</a>` : ""}
         </div>
         <span class="recipe-region">${esc(yr.ad)} Mutfağı · ${esc(tarif.kategori)}</span>
         <p class="recipe-lead">${esc(tarif.ozet)}</p>
@@ -245,7 +246,7 @@ function recipePage(tarif) {
       </div>
     </div>
 
-    ${tarif.ipuclari && tarif.ipuclari.length ? `<div class="tips-block">
+    ${tarif.ipuclari && tarif.ipuclari.length ? `<div class="tips-block" id="puf-noktalari">
       <h2>💡 Püf Noktaları</h2>
       <ul class="tips-list">
         ${tarif.ipuclari.map((t) => `<li>${esc(t)}</li>`).join("\n        ")}
