@@ -717,6 +717,19 @@ p { line-height: 1.7; margin: 0 0 1em; color: var(--ink-muted); }
 }
 .step-list li p { margin: 4px 0 0; color: var(--ink); font-size: 15px; }
 
+.tips-block { margin-top: 48px; padding-top: 36px; border-top: 1px dashed var(--line); }
+.tips-block h2 { font-size: 20px; margin-bottom: 16px; }
+.tips-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; list-style: none; }
+.tips-list li {
+  padding: 14px 18px;
+  background: var(--gold-soft);
+  border-left: 3px solid var(--gold);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink);
+}
+
 /* Info modal */
 .modal-overlay {
   position: fixed;

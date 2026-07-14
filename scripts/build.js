@@ -244,6 +244,13 @@ function recipePage(tarif) {
         </ol>
       </div>
     </div>
+
+    ${tarif.ipuclari && tarif.ipuclari.length ? `<div class="tips-block">
+      <h2>💡 Püf Noktaları</h2>
+      <ul class="tips-list">
+        ${tarif.ipuclari.map((t) => `<li>${esc(t)}</li>`).join("\n        ")}
+      </ul>
+    </div>` : ""}
   </div>
 </section>
 

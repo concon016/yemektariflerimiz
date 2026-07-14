@@ -42,6 +42,12 @@ module.exports = [
       "Üzerine ince domates dilimleri yerleştirin, biraz su ve zeytinyağı gezdirin.",
       "180°C fırında ya da kısık ateşte patlıcanlar tamamen yumuşayana kadar 30-40 dakika pişirin; ılık veya soğuk servis edin.",
     ],
+    ipuclari: [
+      "Patlıcanları alacalı (çizgili) soyup en az 20-30 dakika tuzlu suda bekletmek hem acılığını alır hem kızartırken daha az yağ çekmesini sağlar.",
+      "İç harçtaki soğan ve sarımsağı bol zeytinyağında kısık ateşte yavaşça kavurmak lezzeti derinleştirir, acele etmeyin.",
+      "Bir tutam şeker eklemek domatesin ekşiliğini dengeler — zeytinyağlıların ortak sırrıdır.",
+      "Fırından çıkar çıkmaz değil, birkaç saat (mümkünse buzdolabında) dinlendirip ılık ya da soğuk servis etmek tadını belirginleştirir.",
+    ],
   },
   {
     slug: "zeytinyagli-enginar",
@@ -81,6 +87,12 @@ module.exports = [
       "Enginarları limon suyuyla ovup geniş bir tencereye dizin, aralarına hazırladığınız garnitürü doldurun.",
       "Üzerine kalan zeytinyağını, şekeri, tuzu ve yarım su bardağı su gezdirip kapağı kapatın.",
       "Enginarlar yumuşayana kadar kısık ateşte pişirin, soğuduktan sonra üzerine taze dereotu serperek servis edin.",
+    ],
+    ipuclari: [
+      "Enginarları ayıklarken kesilen yüzeyleri hemen limonlu suya batırın; kararmayı önler.",
+      "Bekletme suyuna bir tutam un katmak (bulanık su) oksijenle temasını keserek kararmayı daha da azaltır.",
+      "Kısık ateşte, kapağı kapalı, kendi buharında ağır ağır pişirmek enginarın dokusunu bozmadan yumuşatır.",
+      "Saplarını kesmeden buzdolabında sakladığınızda birkaç gün daha tazeliğini korur.",
     ],
   },
   {
@@ -123,6 +135,12 @@ module.exports = [
       "Midyeleri ağzı aşağı gelecek şekilde tencereye dizin, üzerine su gezdirip bir tabakla bastırarak yarım saat kısık ateşte pişirin.",
       "Soğuduktan sonra bol limonla servis edin.",
     ],
+    ipuclari: [
+      "Taze midyenin kabuğu sıkı kapalı olur ve elinize aldığınızda ağır gelir (içi suyla doludur); açık duran ya da hafif gelenleri ayıklayın.",
+      "İç pilavı ne çok kuru ne çok sulu bırakın; az miktarda tarçın ve yenibahar aromayı belirgin şekilde zenginleştirir.",
+      "Midyeleri tencereye sıkı sıkı, aralarında boşluk kalmadan dizmek pişerken açılıp dağılmalarını önler.",
+      "Temizlik için midyeleri tuzlu suda 2-3 saat bekletmek içindeki kumu tamamen çıkarır.",
+    ],
   },
   {
     slug: "boyoz",
@@ -159,6 +177,12 @@ module.exports = [
       "Üzerine yumurta sarısı sürüp susam serpin.",
       "Önceden ısıtılmış 200°C fırında altın rengini alana kadar 15-18 dakika pişirin.",
     ],
+    ipuclari: [
+      "Un yüksek proteinli (sert, ekmeklik/baklavalık) olmalı; hamur da sert değil, yumuşak kıvamda yoğrulmalı.",
+      "Yağlanmış hamur bezeleri en az 1-1.5 saat dinlenmeden açılırsa katları ayrılmaz, sert kalır — bu adımı asla atlamayın.",
+      "Tezgahı ve elinizi yağlarken cömert davranın; boyozun tüm lezzeti ve katmanları bu yağdan gelir.",
+      "Fırın mutlaka önceden 200°C'ye ısıtılmalı; yüksek ısı yağı buharlaştırıp katmanları birbirinden ayırır.",
+    ],
   },
   {
     slug: "kumru",
@@ -194,6 +218,12 @@ module.exports = [
       "Kavrulmuş biberleri ekleyip ekmeğin üst kısmını kapatın.",
       "Tost makinesinde ya da sacda kaşar eriyip ekmek hafifçe kızarana kadar pişirin.",
       "Sıcak servis edin.",
+    ],
+    ipuclari: [
+      "Ekmeğin iç yüzeyine ince bir tabaka tereyağı sürmek hem lezzet katar hem hafif çıtırlık kazandırır.",
+      "Kaşar peynirinin güzelce erimesi için sandviçi kapalı bir tavada veya kısa süre fırında ısıtın.",
+      "Sucuğu önceden hafifçe kavurmak lezzetini belirgin şekilde yoğunlaştırır.",
+      "Uzun süre pişirmekten kaçının — ekmek sertleşir, kısa ve yüksek ısı en iyi sonucu verir.",
     ],
   },
 ];
