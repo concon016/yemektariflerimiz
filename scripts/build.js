@@ -207,23 +207,27 @@ function recipePage(tarif) {
 
 <section class="section recipe-hero" style="padding-top:0;">
   <div class="container">
-    <div class="recipe-hero-photo">
-      <span class="page-no">s. ${tarif.sayfaNo}</span>
-      <img src="${tarif.gorsel}" alt="${esc(tarif.gorselAlt)}" loading="eager">
-    </div>
-    <p class="photo-credit">Fotoğraf: ${esc(tarif.fotoKredi)} · <a href="${tarif.fotoKaynak}" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>, CC BY-SA 4.0</p>
-
-    <div class="recipe-title-row">
-      <h1>${esc(tarif.ad)}</h1>
-      <button class="info-btn" id="historyOpen" aria-label="${esc(tarif.ad)} tarihçesini oku">i</button>
-    </div>
-    <span class="recipe-region">${esc(yr.ad)} Mutfağı · ${esc(tarif.kategori)}</span>
-    <p class="recipe-lead">${esc(tarif.ozet)}</p>
-
-    <div class="recipe-meta-row">
-      <span class="pill">⏱ ${esc(tarif.sure)}</span>
-      <span class="pill">👤 ${esc(tarif.zorluk)}</span>
-      <span class="pill">🍽 ${esc(tarif.porsiyon)}</span>
+    <div class="recipe-header">
+      <div class="recipe-header-text">
+        <div class="recipe-title-row">
+          <h1>${esc(tarif.ad)}</h1>
+          <button class="info-btn" id="historyOpen" aria-label="${esc(tarif.ad)} tarihçesini oku">i</button>
+        </div>
+        <span class="recipe-region">${esc(yr.ad)} Mutfağı · ${esc(tarif.kategori)}</span>
+        <p class="recipe-lead">${esc(tarif.ozet)}</p>
+        <div class="recipe-meta-row">
+          <span class="pill">⏱ ${esc(tarif.sure)}</span>
+          <span class="pill">👤 ${esc(tarif.zorluk)}</span>
+          <span class="pill">🍽 ${esc(tarif.porsiyon)}</span>
+        </div>
+      </div>
+      <div class="recipe-header-photo">
+        <div class="recipe-header-photo-inner">
+          <span class="page-no">s. ${tarif.sayfaNo}</span>
+          <img src="${tarif.gorsel}" alt="${esc(tarif.gorselAlt)}" loading="eager">
+        </div>
+        <p class="photo-credit">Fotoğraf: ${esc(tarif.fotoKredi)} · <a href="${tarif.fotoKaynak}" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>, CC BY-SA 4.0</p>
+      </div>
     </div>
 
     <div class="recipe-columns">
