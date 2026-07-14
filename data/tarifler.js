@@ -6,12 +6,12 @@ module.exports = [
   {
     slug: "imam-bayildi",
     ad: "İmam Bayıldı",
-    yore: "ege",
+    grup: "soguk-mezeler",
     kategori: "Zeytinyağlı",
     sayfaNo: 12,
     emoji: "🍆",
     ozet:
-      "Zeytinyağıyla ağır ateşte pişen, soğan-sarımsak-domates dolgulu patlıcanların Ege ve İstanbul sofralarındaki en bilinen hâli.",
+      "Zeytinyağıyla ağır ateşte pişen, soğan-sarımsak-domates dolgulu patlıcanların en bilinen hâli.",
     tarihce:
       "İmam bayıldının Osmanlı dönemine uzanan köklü bir geçmişi var. İsmiyle ilgili en yaygın rivayet, zengin bir zeytinyağı tüccarının kızıyla evlenen bir imamın hikâyesi: eşi ona bol zeytinyağıyla bu yemeği sıkça pişirir, günün birinde zeytinyağları tükenip yemek sofraya gelmeyince imam bu duruma öyle çok üzülür (ya da bir başka rivayete göre yemeğin lezzetine öyle hayran kalır) ki bayılır. Bugün zeytinyağlılar ailesinin en tanınmış üyelerinden biri olarak hem Ege hem de Marmara mutfaklarının ortak klasiği kabul edilir.",
     sure: "1 sa 10 dk",
@@ -62,12 +62,12 @@ module.exports = [
   {
     slug: "zeytinyagli-enginar",
     ad: "Zeytinyağlı Enginar",
-    yore: "ege",
+    grup: "soguk-mezeler",
     kategori: "Zeytinyağlı",
     sayfaNo: 27,
     emoji: "🌿",
     ozet:
-      "Havuç, patates ve bezelyeyle hazırlanan hafif limonlu garnitürle doldurulan, Ege'nin bahar sofralarının vazgeçilmezi.",
+      "Havuç, patates ve bezelyeyle hazırlanan hafif limonlu garnitürle doldurulan, bahar sofralarının vazgeçilmezi.",
     tarihce:
       "Zeytinyağlılar, Osmanlı saray mutfağından bu yana bilinen ama özellikle Ege kıyı şeridinde bahar mevsiminde soframıza taze enginarla giren bir gelenek. Enginar tarımının yoğun yapıldığı İzmir'in Bayındır ilçesi ve çevresi, bu yemeğin en özenli hazırlandığı yerler arasında sayılır; enginar hasadının başladığı nisan-mayıs ayları, Ege'de neredeyse bir mevsim kutlaması gibidir.",
     sure: "45 dk",
@@ -118,12 +118,12 @@ module.exports = [
   {
     slug: "midye-dolma",
     ad: "Midye Dolma",
-    yore: "ege",
+    grup: "soguk-mezeler",
     kategori: "Deniz Ürünü · Sokak Lezzeti",
     sayfaNo: 34,
     emoji: "🦪",
     ozet:
-      "Baharatlı, fıstıklı pilavla doldurulup kendi kabuğunda pişirilen, İzmir sokaklarının klasik akşam atıştırmalığı.",
+      "Baharatlı, fıstıklı pilavla doldurulup kendi kabuğunda pişirilen, sokakların klasik akşam atıştırmalığı.",
     tarihce:
       "Ege ve İstanbul kıyı şeridinde yüzyıllardır bilinen bir sokak lezzeti olan midye dolma, özellikle İzmir'in Kordon ve Konak gibi sahil semtlerinde akşam gezmelerinin vazgeçilmezi hâline gelmiştir. Kabuğu yarı aralanmış midyeye bol limon sıkılıp ayaküstü yenmesi, bu lezzetin en karakteristik sunum biçimidir.",
     sure: "1 sa 30 dk",
@@ -176,12 +176,12 @@ module.exports = [
   {
     slug: "boyoz",
     ad: "Boyoz",
-    yore: "ege",
+    grup: "karbonhidratlar",
     kategori: "Hamur İşi · Kahvaltı",
     sayfaNo: 41,
     emoji: "🥐",
     ozet:
-      "Maya yerine yağda dinlendirilen katmerli hamurdan yapılan, İzmir'in 500 yıllık kahvaltı klasiği.",
+      "Maya yerine yağda dinlendirilen katmerli hamurdan yapılan, 500 yıllık kahvaltı klasiği.",
     tarihce:
       "1492'de İspanya'dan sürülüp İzmir'e yerleşen Sefarad Yahudileri tarafından getirilen \"bollos\" adlı hamur işinin zamanla Türkçeleşmiş hâlidir boyoz. İspanyolca'da \"küçük somun\" anlamına gelen bollo sözcüğünün çoğulu olan bollos, dilimizde boyoz olarak yerleşmiştir. Rivayete göre İzmir'de ilk boyozu Kemeraltı'ndaki fırınında Boyozcu Avram Usta yapmış; onun ardından gelen fırıncılar da bu ustalığı \"Avram Usta'nın boyozu\" adıyla yaşatmaya devam etmiştir.",
     sure: "2 sa 30 dk (bekleme dahil)",
@@ -229,12 +229,12 @@ module.exports = [
   {
     slug: "kumru",
     ad: "Kumru",
-    yore: "ege",
+    grup: "ara-sicaklar",
     kategori: "Sandviç · Sokak Lezzeti",
     sayfaNo: 56,
     emoji: "🥪",
     ozet:
-      "Nohut mayalı, kuş gövdesine benzeyen özel ekmeğin içine sucuk, kaşar ve közlenmiş biberin doldurulduğu, Çeşme'den çıkıp tüm Ege'ye yayılan sandviç.",
+      "Nohut mayalı, kuş gövdesine benzeyen özel ekmeğin içine sucuk, kaşar ve közlenmiş biberin doldurulduğu, Çeşme'den çıkıp yayılan efsane sandviç.",
     tarihce:
       "Kökü 1960'lara uzanan kumru, Çeşmeli balıkçıların denizde karınlarını doyurmak için yediği sade bir tulum peyniri, domates ve biber sandviciyle başlamıştır. Zamanla Çeşme'de Kumrucu Hüseyin adlı bir esnafın elinde sucuk, salam ve kaşar peynirle zenginleşerek bugünkü ızgara \"Çeşme kumrusu\"na dönüşmüştür. Ekmeğinin orta kısmı geniş, uçlara doğru incelen şekli, kumru kuşunun gövdesine benzediği için bu adı almıştır.",
     sure: "20 dk",

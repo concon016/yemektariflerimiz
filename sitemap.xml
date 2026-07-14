@@ -6,7 +6,7 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://yemektariflerimiz.vercel.app/yoreler.html</loc>
+    <loc>https://yemektariflerimiz.vercel.app/kategoriler.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -16,37 +16,32 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yemektariflerimiz.vercel.app/yoreler/ege.html</loc>
+    <loc>https://yemektariflerimiz.vercel.app/kategoriler/corbalar.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://yemektariflerimiz.vercel.app/kategoriler/ara-sicaklar.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yemektariflerimiz.vercel.app/yoreler/karadeniz.html</loc>
+    <loc>https://yemektariflerimiz.vercel.app/kategoriler/ana-yemekler.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://yemektariflerimiz.vercel.app/yoreler/akdeniz.html</loc>
+    <loc>https://yemektariflerimiz.vercel.app/kategoriler/karbonhidratlar.html</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yemektariflerimiz.vercel.app/yoreler/guneydogu-anadolu.html</loc>
+    <loc>https://yemektariflerimiz.vercel.app/kategoriler/soguk-mezeler.html</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yemektariflerimiz.vercel.app/yoreler/ic-anadolu.html</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
-  </url>
-  <url>
-    <loc>https://yemektariflerimiz.vercel.app/yoreler/dogu-anadolu.html</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
-  </url>
-  <url>
-    <loc>https://yemektariflerimiz.vercel.app/yoreler/marmara.html</loc>
+    <loc>https://yemektariflerimiz.vercel.app/kategoriler/tatlilar.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.4</priority>
   </url>

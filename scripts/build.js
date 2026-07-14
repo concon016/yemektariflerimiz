@@ -1,6 +1,7 @@
 // yemektariflerimiz — statik sayfa üretici
-// data/tarifler.js ve data/yoreler.js dosyalarından /tarif/*.html,
-// /yoreler/*.html, /yoreler.html, /tarifler.html ve sitemap.xml üretir.
+// data/tarifler.js ve data/kategoriler.js dosyalarından /tarif/*.html,
+// /kategoriler/*.html, /kategoriler.html, /tarifler.html ve
+// sitemap.xml üretir.
 // Çalıştır: node scripts/build.js
 
 const fs = require("fs");
@@ -10,17 +11,17 @@ const ROOT = path.join(__dirname, "..");
 const SITE_URL = "https://yemektariflerimiz.vercel.app";
 
 const tarifler = require("../data/tarifler.js");
-const yoreler = require("../data/yoreler.js");
+const kategoriler = require("../data/kategoriler.js");
 
-function yoreGetir(slug) {
-  return yoreler.find((y) => y.slug === slug);
+function kategoriGetir(slug) {
+  return kategoriler.find((k) => k.slug === slug);
 }
-function tariflerByYore(slug) {
-  return tarifler.filter((t) => t.yore === slug);
+function tariflerByKategori(slug) {
+  return tarifler.filter((t) => t.grup === slug);
 }
 function ilgiliTarifler(tarif, adet) {
   return tarifler
-    .filter((t) => t.slug !== tarif.slug && t.yore === tarif.yore)
+    .filter((t) => t.slug !== tarif.slug && t.grup === tarif.grup)
     .slice(0, adet);
 }
 
@@ -79,7 +80,7 @@ function nav(active) {
     </a>
     <ul class="nav-links" id="navMobile">
       ${item("/", "Ana Sayfa", "home")}
-      ${item("/yoreler.html", "Yöreler", "yoreler")}
+      ${item("/kategoriler.html", "Kategoriler", "kategoriler")}
       ${item("/tarifler.html", "Tarifler", "tarifler")}
       ${item("/#about", "Hakkında", "about")}
       ${item("/#contact", "İletişim", "contact")}
@@ -106,20 +107,20 @@ function footer() {
           <img src="/assets/favicon.svg" alt="">
           yemek<span class="logo-dim">tariflerimiz</span>
         </a>
-        <p>Türkiye'nin yöresel yemek kitabı. Hikayesiyle, adım adım tarifleriyle Anadolu mutfağı.</p>
+        <p>Türkiye'nin yöresel tarifleri. Hikayesiyle, adım adım tarifleriyle Anadolu mutfağı.</p>
       </div>
       <div>
         <h4>Keşfet</h4>
         <ul>
-          <li><a href="/yoreler.html">Yöreler</a></li>
+          <li><a href="/kategoriler.html">Kategoriler</a></li>
           <li><a href="/tarifler.html">Tarifler</a></li>
           <li><a href="/#about">Hakkında</a></li>
         </ul>
       </div>
       <div>
-        <h4>Bölgeler</h4>
+        <h4>Kategoriler</h4>
         <ul>
-          ${yoreler.slice(0, 3).map((y) => `<li><a href="/yoreler/${y.slug}.html">${y.ad}</a></li>`).join("\n          ")}
+          ${kategoriler.slice(0, 3).map((k) => `<li><a href="/kategoriler/${k.slug}.html">${k.ad}</a></li>`).join("\n          ")}
         </ul>
       </div>
       <div>
@@ -176,7 +177,7 @@ ${footer()}
 /* ---------------- Recipe pages ---------------- */
 
 function recipePage(tarif) {
-  const yr = yoreGetir(tarif.yore);
+  const kat = kategoriGetir(tarif.grup);
   const title = `${tarif.ad} Tarifi Nasıl Yapılır? Malzemeleri ve Yapılışı | yemektariflerimiz`;
   const description = `${tarif.ozet} Malzemeler, adım adım yapılışı ve tarihçesi burada.`;
   const canonicalPath = `/tarif/${tarif.slug}.html`;
@@ -189,7 +190,7 @@ function recipePage(tarif) {
     description: tarif.ozet,
     recipeCuisine: "Turkish",
     recipeCategory: tarif.kategori,
-    keywords: `${tarif.ad}, ${tarif.ad} tarifi, ${yr.ad} mutfağı, yöresel tarif`,
+    keywords: `${tarif.ad}, ${tarif.ad} tarifi, ${kat.ad}, yöresel tarif`,
     recipeYield: tarif.porsiyon,
     totalTime: tarif.sureISO,
     author: { "@type": "Organization", name: "yemektariflerimiz" },
@@ -216,7 +217,7 @@ function recipePage(tarif) {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Ana Sayfa", item: SITE_URL + "/" },
-      { "@type": "ListItem", position: 2, name: yr.ad, item: SITE_URL + `/yoreler/${yr.slug}.html` },
+      { "@type": "ListItem", position: 2, name: kat.ad, item: SITE_URL + `/kategoriler/${kat.slug}.html` },
       { "@type": "ListItem", position: 3, name: tarif.ad, item: SITE_URL + canonicalPath },
     ],
   };
@@ -225,7 +226,7 @@ function recipePage(tarif) {
 
   const body = `${breadcrumb([
     { label: "Ana Sayfa", href: "/" },
-    { label: yr.ad, href: `/yoreler/${yr.slug}.html` },
+    { label: kat.ad, href: `/kategoriler/${kat.slug}.html` },
     { label: tarif.ad },
   ])}
 
@@ -236,7 +237,7 @@ function recipePage(tarif) {
         <div class="recipe-title-row">
           <h1>${esc(tarif.ad)}</h1>
         </div>
-        <span class="recipe-region">${esc(yr.ad)} Mutfağı · ${esc(tarif.kategori)}</span>
+        <span class="recipe-region">${esc(kat.ad)} · ${esc(tarif.kategori)}</span>
         <p class="recipe-lead">${esc(tarif.ozet)}</p>
         <div class="recipe-meta-row">
           <span class="pill">⏱ ${esc(tarif.sure)}</span>
@@ -286,10 +287,10 @@ ${related.length ? `<section class="section section-alt related-recipes">
   <div class="container">
     <div class="section-head">
       <div>
-        <span class="eyebrow">${esc(yr.ad)} Mutfağından</span>
+        <span class="eyebrow">${esc(kat.ad)}</span>
         <h2>Bunlar da hoşunuza gidebilir</h2>
       </div>
-      <a href="/yoreler/${yr.slug}.html" class="see-all">${esc(yr.ad)}'nin tüm tarifleri →</a>
+      <a href="/kategoriler/${kat.slug}.html" class="see-all">${esc(kat.ad)} tariflerinin tümü →</a>
     </div>
     <div class="recipes-grid">
       ${related.map((r) => recipeCard(r)).join("\n      ")}
@@ -405,7 +406,7 @@ function recipeCard(tarif) {
           <div class="recipe-media" style="background-image:url('${tarif.gorsel}'); background-size:cover; background-position:center;"></div>
         </a>
         <div class="recipe-body">
-          <span class="recipe-region">${esc(yoreGetir(tarif.yore).ad)}</span>
+          <span class="recipe-region">${esc(kategoriGetir(tarif.grup).ad)}</span>
           <h3><a href="/tarif/${tarif.slug}.html">${esc(tarif.ad)}</a></h3>
           <p style="margin:0; font-size:14px;">${esc(tarif.ozet)}</p>
           <div class="recipe-meta">
@@ -415,29 +416,29 @@ function recipeCard(tarif) {
       </article>`;
 }
 
-/* ---------------- Region hub pages ---------------- */
+/* ---------------- Kategori hub pages ---------------- */
 
-function regionPage(yr) {
-  const recs = tariflerByYore(yr.slug);
-  const title = `${yr.ad} Mutfağı Tarifleri | yemektariflerimiz`;
-  const description = yr.metaAciklama;
-  const canonicalPath = `/yoreler/${yr.slug}.html`;
+function categoryPage(kat) {
+  const recs = tariflerByKategori(kat.slug);
+  const title = `${kat.ad} Tarifleri | yemektariflerimiz`;
+  const description = kat.metaAciklama;
+  const canonicalPath = `/kategoriler/${kat.slug}.html`;
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Ana Sayfa", item: SITE_URL + "/" },
-      { "@type": "ListItem", position: 2, name: yr.ad, item: SITE_URL + canonicalPath },
+      { "@type": "ListItem", position: 2, name: kat.ad, item: SITE_URL + canonicalPath },
     ],
   };
 
-  const body = `${breadcrumb([{ label: "Ana Sayfa", href: "/" }, { label: yr.ad }])}
+  const body = `${breadcrumb([{ label: "Ana Sayfa", href: "/" }, { label: kat.ad }])}
 
 <section class="region-hero">
   <div class="container">
-    <h1>${esc(yr.ad)} Mutfağı</h1>
-    <p>${esc(yr.aciklama)}</p>
+    <h1>${esc(kat.ad)}</h1>
+    <p>${esc(kat.aciklama)}</p>
   </div>
 </section>
 
@@ -447,36 +448,36 @@ function regionPage(yr) {
       ${recs.map((r) => recipeCard(r)).join("\n      ")}
     </div>` : `<div class="empty-state">
       <span class="emoji">🍳</span>
-      <h2>${esc(yr.ad)} tarifleri hazırlanıyor</h2>
-      <p>Bu yörenin tarifleri özenle yazılıyor, çok yakında burada olacak. O zamana kadar <a href="/yoreler/ege.html" style="color:var(--accent); font-weight:700;">Ege mutfağına</a> göz atabilirsiniz.</p>
+      <h2>${esc(kat.ad)} tarifleri hazırlanıyor</h2>
+      <p>Bu kategorinin tarifleri özenle yazılıyor, çok yakında burada olacak. O zamana kadar <a href="/kategoriler/soguk-mezeler.html" style="color:var(--accent); font-weight:700;">Soğuk Mezeler</a> kategorisine göz atabilirsiniz.</p>
     </div>`}
   </div>
 </section>`;
 
-  return page(title, description, canonicalPath, "yoreler", body, jsonLd(breadcrumbSchema));
+  return page(title, description, canonicalPath, "kategoriler", body, jsonLd(breadcrumbSchema));
 }
 
-function regionsIndexPage() {
-  const title = "Yöreler | yemektariflerimiz";
-  const description = "Karadeniz'den Ege'ye, Güneydoğu'dan Marmara'ya — Türkiye'nin 7 coğrafi bölgesinin mutfağını tek tek keşfedin.";
-  const canonicalPath = "/yoreler.html";
+function categoriesIndexPage() {
+  const title = "Kategoriler | yemektariflerimiz";
+  const description = "Çorbalar, ara sıcaklar, ana yemekler, karbonhidratlar, soğuk mezeler ve tatlılar — yemek türüne göre tarifleri keşfedin.";
+  const canonicalPath = "/kategoriler.html";
 
-  const body = `${breadcrumb([{ label: "Ana Sayfa", href: "/" }, { label: "Yöreler" }])}
+  const body = `${breadcrumb([{ label: "Ana Sayfa", href: "/" }, { label: "Kategoriler" }])}
 
 <section class="section" style="padding-top:10px;">
   <div class="container">
     <div class="section-head">
       <div>
-        <span class="eyebrow">Yöreler</span>
-        <h1>Yöresine göre keşfet</h1>
-        <p>Her bölgenin kendine özgü malzemeleri ve tarifleri var.</p>
+        <span class="eyebrow">Kategoriler</span>
+        <h1>Yemek türüne göre keşfet</h1>
+        <p>Her kategorinin kendine özgü tarifleri var, zamanla kendi içinde de gruplanacak.</p>
       </div>
     </div>
     <div class="regions-grid">
-      ${yoreler.map((y) => {
-        const count = tariflerByYore(y.slug).length;
-        return `<a class="region-card" href="/yoreler/${y.slug}.html" style="--region-color:${y.renk}">
-        <h3>${esc(y.ad)}</h3>
+      ${kategoriler.map((k) => {
+        const count = tariflerByKategori(k.slug).length;
+        return `<a class="region-card" href="/kategoriler/${k.slug}.html" style="--region-color:${k.renk}">
+        <h3>${esc(k.ad)}</h3>
         <span class="count">${count ? count + " tarif" : "yakında"}</span>
       </a>`;
       }).join("\n      ")}
@@ -484,7 +485,7 @@ function regionsIndexPage() {
   </div>
 </section>`;
 
-  return page(title, description, canonicalPath, "yoreler", body);
+  return page(title, description, canonicalPath, "kategoriler", body);
 }
 
 function recipesIndexPage() {
@@ -517,9 +518,9 @@ function recipesIndexPage() {
 function buildSitemap() {
   const urls = [
     { loc: "/", priority: "1.0" },
-    { loc: "/yoreler.html", priority: "0.8" },
+    { loc: "/kategoriler.html", priority: "0.8" },
     { loc: "/tarifler.html", priority: "0.8" },
-    ...yoreler.map((y) => ({ loc: `/yoreler/${y.slug}.html`, priority: tariflerByYore(y.slug).length ? "0.7" : "0.4" })),
+    ...kategoriler.map((k) => ({ loc: `/kategoriler/${k.slug}.html`, priority: tariflerByKategori(k.slug).length ? "0.7" : "0.4" })),
     ...tarifler.map((t) => ({ loc: `/tarif/${t.slug}.html`, priority: "0.9" })),
   ];
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
@@ -544,9 +545,9 @@ function write(rel, content) {
 }
 
 for (const t of tarifler) write(`tarif/${t.slug}.html`, recipePage(t));
-for (const y of yoreler) write(`yoreler/${y.slug}.html`, regionPage(y));
-write("yoreler.html", regionsIndexPage());
+for (const k of kategoriler) write(`kategoriler/${k.slug}.html`, categoryPage(k));
+write("kategoriler.html", categoriesIndexPage());
 write("tarifler.html", recipesIndexPage());
 buildSitemap();
 console.log("✓ sitemap.xml");
-console.log(`\nToplam: ${tarifler.length} tarif, ${yoreler.length} yöre sayfası üretildi.`);
+console.log(`\nToplam: ${tarifler.length} tarif, ${kategoriler.length} kategori sayfası üretildi.`);
