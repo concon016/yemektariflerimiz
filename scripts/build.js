@@ -240,7 +240,6 @@ function recipePage(tarif) {
         <span class="recipe-region">${esc(kat.ad)} · ${esc(tarif.kategori)}</span>
         <p class="recipe-lead">${esc(tarif.ozet)}</p>
         <div class="recipe-meta-row">
-          <span class="pill">⏱ ${esc(tarif.sure)}</span>
           <div class="pill serving-adjust" id="servingAdjust" data-base="${tarif.porsiyonSayisi}">
             <button type="button" id="servMinus" aria-label="Porsiyonu azalt">−</button>
             <span id="servCount">${tarif.porsiyonSayisi}</span> ${esc(tarif.porsiyonEtiket)}
@@ -409,9 +408,6 @@ function recipeCard(tarif) {
           <span class="recipe-region">${esc(kategoriGetir(tarif.grup).ad)}</span>
           <h3><a href="/tarif/${tarif.slug}.html">${esc(tarif.ad)}</a></h3>
           <p style="margin:0; font-size:14px;">${esc(tarif.ozet)}</p>
-          <div class="recipe-meta">
-            <span>⏱ ${esc(tarif.sure)}</span>
-          </div>
         </div>
       </article>`;
 }
