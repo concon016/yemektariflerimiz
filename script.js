@@ -127,6 +127,93 @@
     });
   }
 
+  /* Hadi Başlayalım — adım adım pişirme modu */
+  (function initCookMode() {
+    var openBtn = document.getElementById("cookOpen");
+    var overlay = document.getElementById("cookMode");
+    var dataEl = document.getElementById("cookData");
+    if (!openBtn || !overlay || !dataEl) return;
+
+    var data = JSON.parse(dataEl.textContent);
+    var closeBtn = document.getElementById("cookClose");
+    var miseScreen = document.getElementById("cookMise");
+    var stepsScreen = document.getElementById("cookSteps");
+    var doneScreen = document.getElementById("cookDone");
+    var ingList = document.getElementById("cookIngredients");
+    var startBtn = document.getElementById("cookStart");
+    var stepText = document.getElementById("cookStepText");
+    var stepCount = document.getElementById("cookStepCount");
+    var progressBar = document.getElementById("cookProgressBar");
+    var prevBtn = document.getElementById("cookPrev");
+    var nextBtn = document.getElementById("cookNext");
+    var finishBtn = document.getElementById("cookFinish");
+    var current = 0;
+    var wakeLock = null;
+
+    data.malzemeler.forEach(function (m) {
+      var li = document.createElement("li");
+      li.textContent = m;
+      ingList.appendChild(li);
+    });
+
+    function showScreen(target) {
+      [miseScreen, stepsScreen, doneScreen].forEach(function (s) { s.hidden = s !== target; });
+    }
+
+    function renderStep() {
+      stepText.textContent = data.adimlar[current];
+      stepCount.textContent = "Adım " + (current + 1) + " / " + data.adimlar.length;
+      progressBar.style.width = (((current + 1) / data.adimlar.length) * 100) + "%";
+      prevBtn.style.visibility = current === 0 ? "hidden" : "visible";
+      nextBtn.textContent = current === data.adimlar.length - 1 ? "Tamamladım ✓" : "İlerle →";
+    }
+
+    function requestWakeLock() {
+      if ("wakeLock" in navigator) {
+        navigator.wakeLock.request("screen").then(function (lock) { wakeLock = lock; }).catch(function () {});
+      }
+    }
+    function releaseWakeLock() {
+      if (wakeLock) { wakeLock.release().catch(function () {}); wakeLock = null; }
+    }
+
+    openBtn.addEventListener("click", function () {
+      current = 0;
+      showScreen(miseScreen);
+      overlay.classList.add("open");
+      requestWakeLock();
+    });
+
+    function closeCook() {
+      overlay.classList.remove("open");
+      releaseWakeLock();
+    }
+    closeBtn.addEventListener("click", closeCook);
+    finishBtn.addEventListener("click", closeCook);
+    overlay.addEventListener("click", function (e) { if (e.target === overlay) closeCook(); });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && overlay.classList.contains("open")) closeCook();
+    });
+
+    startBtn.addEventListener("click", function () {
+      current = 0;
+      showScreen(stepsScreen);
+      renderStep();
+    });
+    prevBtn.addEventListener("click", function () {
+      if (current > 0) { current--; renderStep(); }
+    });
+    nextBtn.addEventListener("click", function () {
+      if (current < data.adimlar.length - 1) {
+        current++;
+        renderStep();
+      } else {
+        showScreen(doneScreen);
+        releaseWakeLock();
+      }
+    });
+  })();
+
   /* Search — filters visible recipe cards by name/region (base demo) */
   var searchForm = document.getElementById("searchForm");
   var searchInput = document.getElementById("searchInput");

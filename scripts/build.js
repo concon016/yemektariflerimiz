@@ -225,6 +225,7 @@ function recipePage(tarif) {
           <button class="pill pill-action" id="historyOpen">📖 Tarihçesi</button>
           ${tarif.ipuclari && tarif.ipuclari.length ? `<button class="pill pill-action pill-gold" id="tipsOpen">💡 Püf Noktaları</button>` : ""}
         </div>
+        <button class="btn btn-primary cook-start-btn" id="cookOpen">🍳 Hadi Başlayalım</button>
       </div>
       <div class="recipe-header-photo">
         <div class="recipe-header-photo-inner">
@@ -287,7 +288,40 @@ ${tarif.ipuclari && tarif.ipuclari.length ? `<div class="modal-overlay" id="tips
       ${tarif.ipuclari.map((t) => `<li>${esc(t)}</li>`).join("\n      ")}
     </ul>
   </div>
-</div>` : ""}`;
+</div>` : ""}
+
+<script type="application/json" id="cookData">${JSON.stringify({ malzemeler: tarif.malzemeler, adimlar: tarif.adimlar })}</script>
+
+<div class="cook-overlay" id="cookMode">
+  <div class="cook-box">
+    <button class="cook-close" id="cookClose" aria-label="Kapat">✕</button>
+
+    <div class="cook-screen" id="cookMise">
+      <span class="eyebrow">Önce Hazırlık</span>
+      <h3>Malzemeleri toplayın</h3>
+      <p>Hepsini ölçüp önünüze koyun, hazır olduğunuzda başlayalım.</p>
+      <ul class="tips-list cook-ing-list" id="cookIngredients"></ul>
+      <button class="btn btn-primary" id="cookStart">Hazırım, Başla →</button>
+    </div>
+
+    <div class="cook-screen" id="cookSteps" hidden>
+      <div class="cook-progress"><div class="cook-progress-bar" id="cookProgressBar"></div></div>
+      <span class="cook-step-count" id="cookStepCount"></span>
+      <p class="cook-step-text" id="cookStepText"></p>
+      <div class="cook-nav">
+        <button class="btn btn-outline" id="cookPrev">◀ Geri</button>
+        <button class="btn btn-primary" id="cookNext">İlerle →</button>
+      </div>
+    </div>
+
+    <div class="cook-screen" id="cookDone" hidden>
+      <span class="cook-done-emoji">🎉</span>
+      <h3>Afiyet olsun!</h3>
+      <p>${esc(tarif.ad)} tarifini tamamladınız.</p>
+      <button class="btn btn-primary" id="cookFinish">Kapat</button>
+    </div>
+  </div>
+</div>`;
 
   return page(title, description, canonicalPath, "tarifler", body, jsonLd(recipeSchema) + "\n" + jsonLd(breadcrumbSchema));
 }
