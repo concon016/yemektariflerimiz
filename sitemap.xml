@@ -46,6 +46,11 @@
     <priority>0.4</priority>
   </url>
   <url>
+    <loc>https://yemektariflerimiz.vercel.app/kategoriler/sandvicler.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://yemektariflerimiz.vercel.app/tarif/imam-bayildi.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -92,6 +97,31 @@
   </url>
   <url>
     <loc>https://yemektariflerimiz.vercel.app/tarif/dugun-corbasi.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yemektariflerimiz.vercel.app/tarif/sigara-boregi.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yemektariflerimiz.vercel.app/tarif/pacanga-boregi.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yemektariflerimiz.vercel.app/tarif/kalamar-tava.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yemektariflerimiz.vercel.app/tarif/icli-kofte.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yemektariflerimiz.vercel.app/tarif/karides-guvec.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>

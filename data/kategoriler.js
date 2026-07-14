@@ -44,4 +44,11 @@ module.exports = [
     aciklama: "Sofranın son dokunuşu — geleneksel ve ev yapımı tatlı tarifleri.",
     metaAciklama: "Tatlı tarifleri yakında bu bölümde.",
   },
+  {
+    slug: "sandvicler",
+    ad: "Sandviçler",
+    renk: "#7d2f1f",
+    aciklama: "Ekmek arası pratik ama iddialı lezzetler — sokak kültüründen sofraya taşınan sandviçler.",
+    metaAciklama: "Sandviç tarifleri hikayeleriyle, adım adım anlatımla.",
+  },
 ];
