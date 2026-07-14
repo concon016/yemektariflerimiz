@@ -226,19 +226,18 @@ function recipePage(tarif) {
         <p class="recipe-lead">${esc(tarif.ozet)}</p>
         <div class="recipe-meta-row">
           <span class="pill">⏱ ${esc(tarif.sure)}</span>
-          <span class="pill">👤 ${esc(tarif.zorluk)}</span>
           <div class="pill serving-adjust" id="servingAdjust" data-base="${tarif.porsiyonSayisi}">
             <button type="button" id="servMinus" aria-label="Porsiyonu azalt">−</button>
-            🍽 <span id="servCount">${tarif.porsiyonSayisi}</span> ${esc(tarif.porsiyonEtiket)}
+            <span id="servCount">${tarif.porsiyonSayisi}</span> ${esc(tarif.porsiyonEtiket)}
             <button type="button" id="servPlus" aria-label="Porsiyonu artır">+</button>
           </div>
-          <button class="pill pill-action" id="historyOpen">📖 Tarihçesi</button>
-          ${tarif.ipuclari && tarif.ipuclari.length ? `<button class="pill pill-action pill-gold" id="tipsOpen">💡 Püf Noktaları</button>` : ""}
-          <button class="pill pill-action pill-share" id="shareBtn">🔗 Paylaş</button>
+          <button class="pill pill-action" id="historyOpen">Tarihçesi</button>
+          ${tarif.ipuclari && tarif.ipuclari.length ? `<button class="pill pill-action pill-gold" id="tipsOpen">Püf Noktaları</button>` : ""}
+          <button class="pill pill-action pill-share" id="shareBtn">Paylaş</button>
         </div>
         <div class="cta-row">
-          <button class="btn btn-primary cook-start-btn" id="cookOpen">🍳 Hadi Başlayalım</button>
-          ${tarif.besin ? `<button class="btn btn-outline" id="nutritionOpen">🥗 Besin Tablosu</button>` : ""}
+          <button class="btn btn-primary cook-start-btn" id="cookOpen">Hadi Başlayalım</button>
+          ${tarif.besin ? `<button class="btn btn-outline" id="nutritionOpen">Besin Tablosu</button>` : ""}
         </div>
       </div>
       <div class="recipe-header-photo">
@@ -397,7 +396,6 @@ function recipeCard(tarif) {
           <p style="margin:0; font-size:14px;">${esc(tarif.ozet)}</p>
           <div class="recipe-meta">
             <span>⏱ ${esc(tarif.sure)}</span>
-            <span>👤 ${esc(tarif.zorluk)}</span>
           </div>
         </div>
       </article>`;
