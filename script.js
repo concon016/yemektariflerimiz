@@ -70,6 +70,21 @@
     });
   });
 
+  /* Tarihçe (info) modal — tarif sayfalarında kullanılır */
+  var historyOpen = document.getElementById("historyOpen");
+  var historyModal = document.getElementById("historyModal");
+  var historyClose = document.getElementById("historyClose");
+  if (historyOpen && historyModal && historyClose) {
+    historyOpen.addEventListener("click", function () { historyModal.classList.add("open"); });
+    historyClose.addEventListener("click", function () { historyModal.classList.remove("open"); });
+    historyModal.addEventListener("click", function (e) {
+      if (e.target === historyModal) historyModal.classList.remove("open");
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") historyModal.classList.remove("open");
+    });
+  }
+
   /* Search — filters visible recipe cards by name/region (base demo) */
   var searchForm = document.getElementById("searchForm");
   var searchInput = document.getElementById("searchInput");

@@ -6,7 +6,7 @@
 <title>yemektariflerimiz | Türkiye'nin Yöresel Yemek Kitabı</title>
 <meta name="description" content="Karadeniz'den Güneydoğu'ya, Ege'den Doğu Anadolu'ya — Türkiye'nin yöresel tariflerini bir kitap sayfası gibi keşfedin. Hikayesiyle, adım adım tarifleriyle.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://yemektariflerimiz.vercel.app/">
+<meta property="og:url" content="https://yemektariflerimiz-sitesi.vercel.app/">
 <meta property="og:title" content="yemektariflerimiz | Türkiye'nin Yöresel Yemek Kitabı">
 <meta property="og:description" content="Karadeniz'den Güneydoğu'ya, Ege'den Doğu Anadolu'ya — Türkiye'nin yöresel tariflerini bir kitap sayfası gibi keşfedin.">
 
@@ -14,8 +14,9 @@
 <meta name="twitter:title" content="yemektariflerimiz | Türkiye'nin Yöresel Yemek Kitabı">
 <meta name="twitter:description" content="Yörelerin yemek kitabı: hikayesiyle, adım adım tarifleriyle Türk mutfağı.">
 
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="assets/favicon.svg">
+<link rel="canonical" href="https://yemektariflerimiz-sitesi.vercel.app/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/favicon.svg">
 <script>
   (function () {
     var saved = localStorage.getItem("theme");
@@ -23,7 +24,7 @@
     document.documentElement.setAttribute("data-theme", saved || (prefersDark ? "dark" : "light"));
   })();
 </script>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="/style.css">
 </head>
 <body>
 
@@ -31,14 +32,14 @@
 
 <nav class="nav">
   <div class="nav-inner">
-    <a href="index.html" class="logo">
-      <img src="assets/favicon.svg" alt="">
+    <a href="/" class="logo">
+      <img src="/assets/favicon.svg" alt="">
       yemek<span class="logo-dim">tariflerimiz</span>
     </a>
     <ul class="nav-links" id="navMobile">
-      <li><a href="index.html" class="active">Ana Sayfa</a></li>
-      <li><a href="#regions">Yöreler</a></li>
-      <li><a href="#recipes">Tarifler</a></li>
+      <li><a href="/" class="active">Ana Sayfa</a></li>
+      <li><a href="/yoreler.html">Yöreler</a></li>
+      <li><a href="/tarifler.html">Tarifler</a></li>
       <li><a href="#about">Hakkında</a></li>
       <li><a href="#contact">İletişim</a></li>
     </ul>
@@ -69,25 +70,25 @@
         </form>
         <div class="hero-actions">
           <a href="#recipes" class="btn btn-primary">Tarifleri Keşfet</a>
-          <a href="#regions" class="btn btn-outline">Yöreleri Gör</a>
+          <a href="/yoreler.html" class="btn btn-outline">Yöreleri Gör</a>
         </div>
         <div class="hero-stats">
-          <div class="hero-stat"><strong>7</strong><span>Coğrafi Bölge</span></div>
-          <div class="hero-stat"><strong>180+</strong><span>Yöresel Tarif</span></div>
-          <div class="hero-stat"><strong>81</strong><span>İl Mutfağı</span></div>
+          <div class="hero-stat"><strong>1</strong><span>Yayında Bölüm</span></div>
+          <div class="hero-stat"><strong>5</strong><span>Ege Tarifi</span></div>
+          <div class="hero-stat"><strong>7</strong><span>Planlanan Bölge</span></div>
         </div>
       </div>
       <div class="hero-book reveal">
         <div class="hero-book-badge">Yeni<br>Bölüm</div>
         <div class="hero-book-top">1. Bölüm</div>
         <div>
-          <div class="hero-book-title">Karadeniz<br>Mutfağı</div>
-          <p style="color:rgba(245,239,223,.85); margin-top:10px;">Mısır, hamsi ve yeşilin buluştuğu sofralar.</p>
+          <div class="hero-book-title">Ege<br>Mutfağı</div>
+          <p style="color:rgba(245,239,223,.85); margin-top:10px;">Zeytinyağı, taze ot ve deniz ürünlerinin buluştuğu sofralar.</p>
         </div>
         <div class="hero-book-tags">
-          <span>🐟 Hamsili Pilav</span>
-          <span>🌽 Mısır Ekmeği</span>
-          <span>🥬 Karalahana Çorbası</span>
+          <span>🍆 İmam Bayıldı</span>
+          <span>🦪 Midye Dolma</span>
+          <span>🥐 Boyoz</span>
         </div>
       </div>
     </div>
@@ -102,50 +103,50 @@
           <h2>Yöresine göre keşfet</h2>
           <p>Her bölge, kendi hikayesi ve malzemeleriyle kitabımızda ayrı bir bölüm.</p>
         </div>
-        <a href="#recipes" class="see-all">Tüm tarifler →</a>
+        <a href="/yoreler.html" class="see-all">Tüm yöreler →</a>
       </div>
       <div class="regions-grid">
-        <a class="region-card reveal" href="#recipes" style="--region-color:#556B3D">
-          <span class="region-emoji">🌊</span>
-          <span class="region-no">Bölüm I</span>
-          <h3>Karadeniz</h3>
-          <span class="count">32 tarif</span>
-        </a>
-        <a class="region-card reveal" href="#recipes" style="--region-color:#C9992F">
+        <a class="region-card reveal" href="/yoreler/ege.html" style="--region-color:#C9992F">
           <span class="region-emoji">🫒</span>
-          <span class="region-no">Bölüm II</span>
+          <span class="region-no">Bölüm I</span>
           <h3>Ege</h3>
-          <span class="count">27 tarif</span>
+          <span class="count">5 tarif</span>
         </a>
-        <a class="region-card reveal" href="#recipes" style="--region-color:#A6402C">
+        <a class="region-card reveal" href="/yoreler/karadeniz.html" style="--region-color:#556B3D">
+          <span class="region-emoji">🌊</span>
+          <span class="region-no">Bölüm II</span>
+          <h3>Karadeniz</h3>
+          <span class="count">yakında</span>
+        </a>
+        <a class="region-card reveal" href="/yoreler/akdeniz.html" style="--region-color:#A6402C">
           <span class="region-emoji">🌶️</span>
           <span class="region-no">Bölüm III</span>
           <h3>Akdeniz</h3>
-          <span class="count">24 tarif</span>
+          <span class="count">yakında</span>
         </a>
-        <a class="region-card reveal" href="#recipes" style="--region-color:#7d2f1f">
+        <a class="region-card reveal" href="/yoreler/guneydogu-anadolu.html" style="--region-color:#7d2f1f">
           <span class="region-emoji">🍢</span>
           <span class="region-no">Bölüm IV</span>
           <h3>Güneydoğu Anadolu</h3>
-          <span class="count">29 tarif</span>
+          <span class="count">yakında</span>
         </a>
-        <a class="region-card reveal" href="#recipes" style="--region-color:#8a6d3b">
+        <a class="region-card reveal" href="/yoreler/ic-anadolu.html" style="--region-color:#8a6d3b">
           <span class="region-emoji">🥟</span>
           <span class="region-no">Bölüm V</span>
           <h3>İç Anadolu</h3>
-          <span class="count">26 tarif</span>
+          <span class="count">yakında</span>
         </a>
-        <a class="region-card reveal" href="#recipes" style="--region-color:#3d4f2b">
+        <a class="region-card reveal" href="/yoreler/dogu-anadolu.html" style="--region-color:#3d4f2b">
           <span class="region-emoji">🏔️</span>
           <span class="region-no">Bölüm VI</span>
           <h3>Doğu Anadolu</h3>
-          <span class="count">21 tarif</span>
+          <span class="count">yakında</span>
         </a>
-        <a class="region-card reveal" href="#recipes" style="--region-color:#4b5f7a">
+        <a class="region-card reveal" href="/yoreler/marmara.html" style="--region-color:#4b5f7a">
           <span class="region-emoji">🥐</span>
           <span class="region-no">Bölüm VII</span>
           <h3>Marmara</h3>
-          <span class="count">22 tarif</span>
+          <span class="count">yakında</span>
         </a>
       </div>
     </div>
@@ -158,89 +159,20 @@
         <div>
           <span class="eyebrow">Sayfaları Çevirin</span>
           <h2>Öne çıkan tarifler</h2>
-          <p>Kitabımızın bu haftaki seçkisi — hikayesiyle, adım adım anlatımıyla.</p>
+          <p>Ege bölümünün ilk 5 tarifi — hikayesiyle, adım adım anlatımıyla.</p>
         </div>
-        <a href="#" class="see-all">Tüm tarifleri gör →</a>
+        <a href="/tarifler.html" class="see-all">Tüm tarifleri gör →</a>
       </div>
       <div class="recipes-grid" id="recipesGrid">
-        <!-- cards injected by script.js from sample data, static fallback below -->
-        <article class="recipe-card reveal" data-region="Güneydoğu Anadolu" data-name="Testi Kebabı">
-          <div class="recipe-media" style="--recipe-color:#F5E2DA">
-            <span class="page-no">s. 42</span>
-            <button class="fav" aria-label="Favorilere ekle">🤍</button>
-            <span>🍲</span>
-          </div>
-          <div class="recipe-body">
-            <span class="recipe-region">Güneydoğu Anadolu</span>
-            <h3>Testi Kebabı</h3>
-            <p style="margin:0; font-size:14px;">Toprak testide, kendi buğusunda pişen et ve sebzelerin buluşması.</p>
-            <div class="recipe-meta">
-              <span>⏱ 2 sa 30 dk</span>
-              <span>👤 Orta</span>
+        <article class="recipe-card reveal" data-name="İmam Bayıldı" data-region="Ege">
+          <a href="/tarif/imam-bayildi.html">
+            <div class="recipe-media" style="background-image:url('/assets/tarifler/imam-bayildi.jpg'); background-size:cover; background-position:center;">
+              <span class="page-no">s. 12</span>
             </div>
-          </div>
-        </article>
-
-        <article class="recipe-card reveal" data-region="İç Anadolu" data-name="Mantı">
-          <div class="recipe-media" style="--recipe-color:#F6EAC8">
-            <span class="page-no">s. 17</span>
-            <button class="fav" aria-label="Favorilere ekle">🤍</button>
-            <span>🥟</span>
-          </div>
-          <div class="recipe-body">
-            <span class="recipe-region">İç Anadolu</span>
-            <h3>Kayseri Mantısı</h3>
-            <p style="margin:0; font-size:14px;">İnce açılmış hamur, yoğurt ve tereyağlı sos — nesilden nesile aktarılan bir emek.</p>
-            <div class="recipe-meta">
-              <span>⏱ 1 sa 45 dk</span>
-              <span>👤 Zor</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="recipe-card reveal" data-region="Karadeniz" data-name="Hamsili Pilav">
-          <div class="recipe-media" style="--recipe-color:#E7EEDD">
-            <span class="page-no">s. 8</span>
-            <button class="fav" aria-label="Favorilere ekle">🤍</button>
-            <span>🐟</span>
-          </div>
-          <div class="recipe-body">
-            <span class="recipe-region">Karadeniz</span>
-            <h3>Hamsili Pilav</h3>
-            <p style="margin:0; font-size:14px;">Karadeniz sofralarının vazgeçilmezi: hamsi ve pirincin dostluğu.</p>
-            <div class="recipe-meta">
-              <span>⏱ 50 dk</span>
-              <span>👤 Kolay</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="recipe-card reveal" data-region="Akdeniz" data-name="Çiğ Köfte">
-          <div class="recipe-media" style="--recipe-color:#F5E2DA">
-            <span class="page-no">s. 63</span>
-            <button class="fav" aria-label="Favorilere ekle">🤍</button>
-            <span>🌶️</span>
-          </div>
-          <div class="recipe-body">
-            <span class="recipe-region">Güneydoğu Anadolu</span>
-            <h3>Çiğ Köfte</h3>
-            <p style="margin:0; font-size:14px;">Bulgur, baharat ve emek — elle yoğrularak hazırlanan geleneksel lezzet.</p>
-            <div class="recipe-meta">
-              <span>⏱ 40 dk</span>
-              <span>👤 Orta</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="recipe-card reveal" data-region="Ege" data-name="İmam Bayıldı">
-          <div class="recipe-media" style="--recipe-color:#E7EEDD">
-            <span class="page-no">s. 29</span>
-            <button class="fav" aria-label="Favorilere ekle">🤍</button>
-            <span>🍆</span>
-          </div>
+          </a>
           <div class="recipe-body">
             <span class="recipe-region">Ege</span>
-            <h3>İmam Bayıldı</h3>
+            <h3><a href="/tarif/imam-bayildi.html">İmam Bayıldı</a></h3>
             <p style="margin:0; font-size:14px;">Zeytinyağı, patlıcan ve sabır — Ege mutfağının zarif klasiği.</p>
             <div class="recipe-meta">
               <span>⏱ 1 sa 10 dk</span>
@@ -249,19 +181,70 @@
           </div>
         </article>
 
-        <article class="recipe-card reveal" data-region="Marmara" data-name="Karnıyarık">
-          <div class="recipe-media" style="--recipe-color:#F6EAC8">
-            <span class="page-no">s. 55</span>
-            <button class="fav" aria-label="Favorilere ekle">🤍</button>
-            <span>🍽️</span>
-          </div>
+        <article class="recipe-card reveal" data-name="Zeytinyağlı Enginar" data-region="Ege">
+          <a href="/tarif/zeytinyagli-enginar.html">
+            <div class="recipe-media" style="background-image:url('/assets/tarifler/zeytinyagli-enginar.jpg'); background-size:cover; background-position:center;">
+              <span class="page-no">s. 27</span>
+            </div>
+          </a>
           <div class="recipe-body">
-            <span class="recipe-region">Marmara</span>
-            <h3>Karnıyarık</h3>
-            <p style="margin:0; font-size:14px;">Kıymalı patlıcanın en sevilen hali, her sofrada bir başyapıt.</p>
+            <span class="recipe-region">Ege</span>
+            <h3><a href="/tarif/zeytinyagli-enginar.html">Zeytinyağlı Enginar</a></h3>
+            <p style="margin:0; font-size:14px;">Havuç, patates ve bezelyeyle dolan Ege'nin bahar klasiği.</p>
             <div class="recipe-meta">
-              <span>⏱ 1 sa</span>
+              <span>⏱ 45 dk</span>
               <span>👤 Orta</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="recipe-card reveal" data-name="Midye Dolma" data-region="Ege">
+          <a href="/tarif/midye-dolma.html">
+            <div class="recipe-media" style="background-image:url('/assets/tarifler/midye-dolma.jpg'); background-size:cover; background-position:center;">
+              <span class="page-no">s. 34</span>
+            </div>
+          </a>
+          <div class="recipe-body">
+            <span class="recipe-region">Ege</span>
+            <h3><a href="/tarif/midye-dolma.html">Midye Dolma</a></h3>
+            <p style="margin:0; font-size:14px;">İzmir sokaklarının fıstıklı pilavlı klasik akşam lezzeti.</p>
+            <div class="recipe-meta">
+              <span>⏱ 1 sa 30 dk</span>
+              <span>👤 Zor</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="recipe-card reveal" data-name="Boyoz" data-region="Ege">
+          <a href="/tarif/boyoz.html">
+            <div class="recipe-media" style="background-image:url('/assets/tarifler/boyoz.jpg'); background-size:cover; background-position:center;">
+              <span class="page-no">s. 41</span>
+            </div>
+          </a>
+          <div class="recipe-body">
+            <span class="recipe-region">Ege</span>
+            <h3><a href="/tarif/boyoz.html">Boyoz</a></h3>
+            <p style="margin:0; font-size:14px;">İzmir'in 500 yıllık, Sefarad kökenli kahvaltı klasiği.</p>
+            <div class="recipe-meta">
+              <span>⏱ 2 sa 30 dk</span>
+              <span>👤 Zor</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="recipe-card reveal" data-name="Kumru" data-region="Ege">
+          <a href="/tarif/kumru.html">
+            <div class="recipe-media" style="background-image:url('/assets/tarifler/kumru.jpg'); background-size:cover; background-position:center;">
+              <span class="page-no">s. 56</span>
+            </div>
+          </a>
+          <div class="recipe-body">
+            <span class="recipe-region">Ege</span>
+            <h3><a href="/tarif/kumru.html">Kumru</a></h3>
+            <p style="margin:0; font-size:14px;">Çeşme'den çıkıp tüm Ege'ye yayılan efsane sandviç.</p>
+            <div class="recipe-meta">
+              <span>⏱ 20 dk</span>
+              <span>👤 Kolay</span>
             </div>
           </div>
         </article>
@@ -323,8 +306,8 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="index.html" class="logo">
-          <img src="assets/favicon.svg" alt="">
+        <a href="/" class="logo">
+          <img src="/assets/favicon.svg" alt="">
           yemek<span class="logo-dim">tariflerimiz</span>
         </a>
         <p>Türkiye'nin yöresel yemek kitabı. Hikayesiyle, adım adım tarifleriyle Anadolu mutfağı.</p>
@@ -332,17 +315,17 @@
       <div>
         <h4>Keşfet</h4>
         <ul>
-          <li><a href="#regions">Yöreler</a></li>
-          <li><a href="#recipes">Tarifler</a></li>
+          <li><a href="/yoreler.html">Yöreler</a></li>
+          <li><a href="/tarifler.html">Tarifler</a></li>
           <li><a href="#about">Hakkında</a></li>
         </ul>
       </div>
       <div>
         <h4>Bölgeler</h4>
         <ul>
-          <li><a href="#regions">Karadeniz</a></li>
-          <li><a href="#regions">Ege</a></li>
-          <li><a href="#regions">Güneydoğu Anadolu</a></li>
+          <li><a href="/yoreler/ege.html">Ege</a></li>
+          <li><a href="/yoreler/karadeniz.html">Karadeniz</a></li>
+          <li><a href="/yoreler/guneydogu-anadolu.html">Güneydoğu Anadolu</a></li>
         </ul>
       </div>
       <div>
@@ -359,6 +342,6 @@
   </div>
 </footer>
 
-<script src="script.js"></script>
+<script src="/script.js"></script>
 </body>
 </html>
