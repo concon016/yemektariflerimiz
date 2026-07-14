@@ -87,6 +87,7 @@
   }
   wireModal("historyOpen", "historyModal", "historyClose");
   wireModal("tipsOpen", "tipsModal", "tipsClose");
+  wireModal("nutritionOpen", "nutritionModal", "nutritionClose");
 
   /* Paylaş butonu — Web Share API, yoksa panoya kopyala */
   var shareBtn = document.getElementById("shareBtn");
@@ -128,12 +129,20 @@
     var servMinus = document.getElementById("servMinus");
     var servPlus = document.getElementById("servPlus");
     var ingLabels = document.querySelectorAll("#ingredientList .ing-text");
+    var nutritionTotalEl = document.getElementById("nutritionTotal");
+    var cookDataEl = document.getElementById("cookData");
+    var cookDataParsed = cookDataEl ? JSON.parse(cookDataEl.textContent) : null;
     function renderServings() {
-      servCount.textContent = current % 1 === 0 ? current : String(current).replace(".", ",");
+      var displayCount = current % 1 === 0 ? current : String(current).replace(".", ",");
+      servCount.textContent = displayCount;
       var factor = current / base;
       ingLabels.forEach(function (el) {
         el.textContent = scaleIngredientText(el.getAttribute("data-orig"), factor);
       });
+      if (nutritionTotalEl && cookDataParsed && cookDataParsed.besin) {
+        var totalKcal = Math.round(cookDataParsed.besin.kalori * current);
+        nutritionTotalEl.textContent = "Toplam (" + displayCount + " " + cookDataParsed.porsiyonEtiket + "): " + totalKcal + " kcal";
+      }
     }
     servMinus.addEventListener("click", function () {
       if (current > (base < 4 ? 1 : 2)) { current -= base < 4 ? 1 : 2; renderServings(); }

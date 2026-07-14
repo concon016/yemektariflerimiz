@@ -186,6 +186,16 @@ function recipePage(tarif) {
       text: s,
     })),
   };
+  if (tarif.besin) {
+    recipeSchema.nutrition = {
+      "@type": "NutritionInformation",
+      calories: tarif.besin.kalori + " kcal",
+      proteinContent: tarif.besin.protein + " g",
+      carbohydrateContent: tarif.besin.karbonhidrat + " g",
+      fatContent: tarif.besin.yag + " g",
+      fiberContent: tarif.besin.lif + " g",
+    };
+  }
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -226,7 +236,10 @@ function recipePage(tarif) {
           ${tarif.ipuclari && tarif.ipuclari.length ? `<button class="pill pill-action pill-gold" id="tipsOpen">💡 Püf Noktaları</button>` : ""}
           <button class="pill pill-action pill-share" id="shareBtn">🔗 Paylaş</button>
         </div>
-        <button class="btn btn-primary cook-start-btn" id="cookOpen">🍳 Hadi Başlayalım</button>
+        <div class="cta-row">
+          <button class="btn btn-primary cook-start-btn" id="cookOpen">🍳 Hadi Başlayalım</button>
+          ${tarif.besin ? `<button class="btn btn-outline" id="nutritionOpen">🥗 Besin Tablosu</button>` : ""}
+        </div>
       </div>
       <div class="recipe-header-photo">
         <div class="recipe-header-photo-inner">
@@ -291,7 +304,39 @@ ${tarif.ipuclari && tarif.ipuclari.length ? `<div class="modal-overlay" id="tips
   </div>
 </div>` : ""}
 
-<script type="application/json" id="cookData">${JSON.stringify({ malzemeler: tarif.malzemeler, adimlar: tarif.adimlar })}</script>
+<script type="application/json" id="cookData">${JSON.stringify({ malzemeler: tarif.malzemeler, adimlar: tarif.adimlar, besin: tarif.besin || null, porsiyonSayisi: tarif.porsiyonSayisi, porsiyonEtiket: tarif.porsiyonEtiket })}</script>
+
+${tarif.besin ? `<div class="modal-overlay" id="nutritionModal">
+  <div class="modal-box nutrition-box" role="dialog" aria-modal="true" aria-labelledby="nutritionTitle">
+    <button class="modal-close" id="nutritionClose" aria-label="Kapat">✕</button>
+    <span class="eyebrow">Besin Değerleri</span>
+    <h3 id="nutritionTitle">Besin Tablosu</h3>
+    <p class="nutrition-note">1 porsiyon için yaklaşık değerler.</p>
+    <div class="nutrition-label">
+      <div class="nutrition-row nutrition-row-main">
+        <span>Kalori</span>
+        <strong id="nutriKalori">${tarif.besin.kalori} kcal</strong>
+      </div>
+      <div class="nutrition-row">
+        <span>Protein</span>
+        <strong id="nutriProtein">${tarif.besin.protein} g</strong>
+      </div>
+      <div class="nutrition-row">
+        <span>Karbonhidrat</span>
+        <strong id="nutriKarb">${tarif.besin.karbonhidrat} g</strong>
+      </div>
+      <div class="nutrition-row">
+        <span>Yağ</span>
+        <strong id="nutriYag">${tarif.besin.yag} g</strong>
+      </div>
+      <div class="nutrition-row">
+        <span>Lif</span>
+        <strong id="nutriLif">${tarif.besin.lif} g</strong>
+      </div>
+    </div>
+    <p class="nutrition-total" id="nutritionTotal">Toplam (${tarif.porsiyonSayisi} ${esc(tarif.porsiyonEtiket)}): ${tarif.besin.kalori * tarif.porsiyonSayisi} kcal</p>
+  </div>
+</div>` : ""}
 
 <div class="cook-overlay" id="cookMode">
   <div class="cook-box">

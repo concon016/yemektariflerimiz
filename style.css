@@ -781,7 +781,32 @@ p { line-height: 1.7; margin: 0 0 1em; color: var(--ink-muted); }
 .modal-close:hover { background: var(--accent-soft); color: var(--accent); }
 
 /* Cook mode ("Hadi Başlayalım") */
-.cook-start-btn { margin-top: 22px; width: 100%; max-width: 320px; justify-content: center; font-size: 16px; padding: 15px 24px; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+.cook-start-btn { justify-content: center; font-size: 16px; padding: 15px 24px; flex: 1 1 220px; max-width: 320px; }
+.cta-row .btn-outline { justify-content: center; padding: 15px 20px; flex: 1 1 180px; max-width: 240px; }
+
+.nutrition-box { text-align: left; }
+.nutrition-note { font-size: 13px; color: var(--ink-muted); margin-bottom: 16px; }
+.nutrition-label { border: 3px solid var(--ink); border-radius: 4px; padding: 4px 16px; }
+.nutrition-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 14.5px;
+}
+.nutrition-row:last-child { border-bottom: none; }
+.nutrition-row-main {
+  border-bottom: 6px solid var(--ink);
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 700;
+  padding: 8px 0 14px;
+}
+.nutrition-row-main strong { font-size: 22px; }
+.nutrition-total { margin-top: 14px; font-size: 13.5px; color: var(--ink-muted); font-weight: 700; }
+#nutritionOpen { font-size: 16px; }
 
 .cook-overlay {
   position: fixed;
