@@ -150,11 +150,18 @@
     var current = 0;
     var wakeLock = null;
 
-    data.malzemeler.forEach(function (m) {
-      var li = document.createElement("li");
-      li.textContent = m;
-      ingList.appendChild(li);
-    });
+    function renderIngredients() {
+      ingList.innerHTML = "";
+      var liveLabels = document.querySelectorAll("#ingredientList .ing-text");
+      var texts = liveLabels.length
+        ? Array.prototype.map.call(liveLabels, function (el) { return el.textContent; })
+        : data.malzemeler;
+      texts.forEach(function (m) {
+        var li = document.createElement("li");
+        li.textContent = m;
+        ingList.appendChild(li);
+      });
+    }
 
     function showScreen(target) {
       [miseScreen, stepsScreen, doneScreen].forEach(function (s) { s.hidden = s !== target; });
@@ -179,6 +186,7 @@
 
     openBtn.addEventListener("click", function () {
       current = 0;
+      renderIngredients();
       showScreen(miseScreen);
       overlay.classList.add("open");
       requestWakeLock();
