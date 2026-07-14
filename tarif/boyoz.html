@@ -65,8 +65,6 @@
       <div class="recipe-header-text">
         <div class="recipe-title-row">
           <h1>Boyoz</h1>
-          <button class="info-btn" id="historyOpen" aria-label="Boyoz tarihçesini oku">i</button>
-          <a href="#puf-noktalari" class="info-btn tips-btn" aria-label="Püf noktalarına git">💡</a>
         </div>
         <span class="recipe-region">Ege Mutfağı · Hamur İşi · Kahvaltı</span>
         <p class="recipe-lead">Maya yerine yağda dinlendirilen katmerli hamurdan yapılan, İzmir'in 500 yıllık kahvaltı klasiği.</p>
@@ -74,6 +72,8 @@
           <span class="pill">⏱ 2 sa 30 dk (bekleme dahil)</span>
           <span class="pill">👤 Zor</span>
           <span class="pill">🍽 12 adet</span>
+          <button class="pill pill-action" id="historyOpen">📖 Tarihçesi</button>
+          <button class="pill pill-action pill-gold" id="tipsOpen">💡 Püf Noktaları</button>
         </div>
       </div>
       <div class="recipe-header-photo">
@@ -108,16 +108,6 @@
           <li><p>Önceden ısıtılmış 200°C fırında altın rengini alana kadar 15-18 dakika pişirin.</p></li>
         </ol>
       </div>
-    </div>
-
-    <div class="tips-block" id="puf-noktalari">
-      <h2>💡 Püf Noktaları</h2>
-      <ul class="tips-list">
-        <li>Un yüksek proteinli (sert, ekmeklik/baklavalık) olmalı; hamur da sert değil, yumuşak kıvamda yoğrulmalı.</li>
-        <li>Yağlanmış hamur bezeleri en az 1-1.5 saat dinlenmeden açılırsa katları ayrılmaz, sert kalır — bu adımı asla atlamayın.</li>
-        <li>Tezgahı ve elinizi yağlarken cömert davranın; boyozun tüm lezzeti ve katmanları bu yağdan gelir.</li>
-        <li>Fırın mutlaka önceden 200°C'ye ısıtılmalı; yüksek ısı yağı buharlaştırıp katmanları birbirinden ayırır.</li>
-      </ul>
     </div>
   </div>
 </section>
@@ -190,6 +180,20 @@
     <span class="eyebrow">Tarihçesi</span>
     <h3 id="historyTitle">Boyoz nereden geliyor?</h3>
     <p>1492'de İspanya'dan sürülüp İzmir'e yerleşen Sefarad Yahudileri tarafından getirilen &quot;bollos&quot; adlı hamur işinin zamanla Türkçeleşmiş hâlidir boyoz. İspanyolca'da &quot;küçük somun&quot; anlamına gelen bollo sözcüğünün çoğulu olan bollos, dilimizde boyoz olarak yerleşmiştir. Rivayete göre İzmir'de ilk boyozu Kemeraltı'ndaki fırınında Boyozcu Avram Usta yapmış; onun ardından gelen fırıncılar da bu ustalığı &quot;Avram Usta'nın boyozu&quot; adıyla yaşatmaya devam etmiştir.</p>
+  </div>
+</div>
+
+<div class="modal-overlay" id="tipsModal">
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="tipsTitle">
+    <button class="modal-close" id="tipsClose" aria-label="Kapat">✕</button>
+    <span class="eyebrow">Ustasından</span>
+    <h3 id="tipsTitle">Püf Noktaları</h3>
+    <ul class="tips-list">
+      <li>Un yüksek proteinli (sert, ekmeklik/baklavalık) olmalı; hamur da sert değil, yumuşak kıvamda yoğrulmalı.</li>
+      <li>Yağlanmış hamur bezeleri en az 1-1.5 saat dinlenmeden açılırsa katları ayrılmaz, sert kalır — bu adımı asla atlamayın.</li>
+      <li>Tezgahı ve elinizi yağlarken cömert davranın; boyozun tüm lezzeti ve katmanları bu yağdan gelir.</li>
+      <li>Fırın mutlaka önceden 200°C'ye ısıtılmalı; yüksek ısı yağı buharlaştırıp katmanları birbirinden ayırır.</li>
+    </ul>
   </div>
 </div>
 </main>

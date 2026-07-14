@@ -65,8 +65,6 @@
       <div class="recipe-header-text">
         <div class="recipe-title-row">
           <h1>İmam Bayıldı</h1>
-          <button class="info-btn" id="historyOpen" aria-label="İmam Bayıldı tarihçesini oku">i</button>
-          <a href="#puf-noktalari" class="info-btn tips-btn" aria-label="Püf noktalarına git">💡</a>
         </div>
         <span class="recipe-region">Ege Mutfağı · Zeytinyağlı</span>
         <p class="recipe-lead">Zeytinyağıyla ağır ateşte pişen, soğan-sarımsak-domates dolgulu patlıcanların Ege ve İstanbul sofralarındaki en bilinen hâli.</p>
@@ -74,6 +72,8 @@
           <span class="pill">⏱ 1 sa 10 dk</span>
           <span class="pill">👤 Kolay</span>
           <span class="pill">🍽 4 kişilik</span>
+          <button class="pill pill-action" id="historyOpen">📖 Tarihçesi</button>
+          <button class="pill pill-action pill-gold" id="tipsOpen">💡 Püf Noktaları</button>
         </div>
       </div>
       <div class="recipe-header-photo">
@@ -112,16 +112,6 @@
           <li><p>180°C fırında ya da kısık ateşte patlıcanlar tamamen yumuşayana kadar 30-40 dakika pişirin; ılık veya soğuk servis edin.</p></li>
         </ol>
       </div>
-    </div>
-
-    <div class="tips-block" id="puf-noktalari">
-      <h2>💡 Püf Noktaları</h2>
-      <ul class="tips-list">
-        <li>Patlıcanları alacalı (çizgili) soyup en az 20-30 dakika tuzlu suda bekletmek hem acılığını alır hem kızartırken daha az yağ çekmesini sağlar.</li>
-        <li>İç harçtaki soğan ve sarımsağı bol zeytinyağında kısık ateşte yavaşça kavurmak lezzeti derinleştirir, acele etmeyin.</li>
-        <li>Bir tutam şeker eklemek domatesin ekşiliğini dengeler — zeytinyağlıların ortak sırrıdır.</li>
-        <li>Fırından çıkar çıkmaz değil, birkaç saat (mümkünse buzdolabında) dinlendirip ılık ya da soğuk servis etmek tadını belirginleştirir.</li>
-      </ul>
     </div>
   </div>
 </section>
@@ -194,6 +184,20 @@
     <span class="eyebrow">Tarihçesi</span>
     <h3 id="historyTitle">İmam Bayıldı nereden geliyor?</h3>
     <p>İmam bayıldının Osmanlı dönemine uzanan köklü bir geçmişi var. İsmiyle ilgili en yaygın rivayet, zengin bir zeytinyağı tüccarının kızıyla evlenen bir imamın hikâyesi: eşi ona bol zeytinyağıyla bu yemeği sıkça pişirir, günün birinde zeytinyağları tükenip yemek sofraya gelmeyince imam bu duruma öyle çok üzülür (ya da bir başka rivayete göre yemeğin lezzetine öyle hayran kalır) ki bayılır. Bugün zeytinyağlılar ailesinin en tanınmış üyelerinden biri olarak hem Ege hem de Marmara mutfaklarının ortak klasiği kabul edilir.</p>
+  </div>
+</div>
+
+<div class="modal-overlay" id="tipsModal">
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="tipsTitle">
+    <button class="modal-close" id="tipsClose" aria-label="Kapat">✕</button>
+    <span class="eyebrow">Ustasından</span>
+    <h3 id="tipsTitle">Püf Noktaları</h3>
+    <ul class="tips-list">
+      <li>Patlıcanları alacalı (çizgili) soyup en az 20-30 dakika tuzlu suda bekletmek hem acılığını alır hem kızartırken daha az yağ çekmesini sağlar.</li>
+      <li>İç harçtaki soğan ve sarımsağı bol zeytinyağında kısık ateşte yavaşça kavurmak lezzeti derinleştirir, acele etmeyin.</li>
+      <li>Bir tutam şeker eklemek domatesin ekşiliğini dengeler — zeytinyağlıların ortak sırrıdır.</li>
+      <li>Fırından çıkar çıkmaz değil, birkaç saat (mümkünse buzdolabında) dinlendirip ılık ya da soğuk servis etmek tadını belirginleştirir.</li>
+    </ul>
   </div>
 </div>
 </main>

@@ -65,8 +65,6 @@
       <div class="recipe-header-text">
         <div class="recipe-title-row">
           <h1>Midye Dolma</h1>
-          <button class="info-btn" id="historyOpen" aria-label="Midye Dolma tarihçesini oku">i</button>
-          <a href="#puf-noktalari" class="info-btn tips-btn" aria-label="Püf noktalarına git">💡</a>
         </div>
         <span class="recipe-region">Ege Mutfağı · Deniz Ürünü · Sokak Lezzeti</span>
         <p class="recipe-lead">Baharatlı, fıstıklı pilavla doldurulup kendi kabuğunda pişirilen, İzmir sokaklarının klasik akşam atıştırmalığı.</p>
@@ -74,6 +72,8 @@
           <span class="pill">⏱ 1 sa 30 dk</span>
           <span class="pill">👤 Zor</span>
           <span class="pill">🍽 40 adet (10-12 kişilik atıştırmalık)</span>
+          <button class="pill pill-action" id="historyOpen">📖 Tarihçesi</button>
+          <button class="pill pill-action pill-gold" id="tipsOpen">💡 Püf Noktaları</button>
         </div>
       </div>
       <div class="recipe-header-photo">
@@ -113,16 +113,6 @@
           <li><p>Soğuduktan sonra bol limonla servis edin.</p></li>
         </ol>
       </div>
-    </div>
-
-    <div class="tips-block" id="puf-noktalari">
-      <h2>💡 Püf Noktaları</h2>
-      <ul class="tips-list">
-        <li>Taze midyenin kabuğu sıkı kapalı olur ve elinize aldığınızda ağır gelir (içi suyla doludur); açık duran ya da hafif gelenleri ayıklayın.</li>
-        <li>İç pilavı ne çok kuru ne çok sulu bırakın; az miktarda tarçın ve yenibahar aromayı belirgin şekilde zenginleştirir.</li>
-        <li>Midyeleri tencereye sıkı sıkı, aralarında boşluk kalmadan dizmek pişerken açılıp dağılmalarını önler.</li>
-        <li>Temizlik için midyeleri tuzlu suda 2-3 saat bekletmek içindeki kumu tamamen çıkarır.</li>
-      </ul>
     </div>
   </div>
 </section>
@@ -195,6 +185,20 @@
     <span class="eyebrow">Tarihçesi</span>
     <h3 id="historyTitle">Midye Dolma nereden geliyor?</h3>
     <p>Ege ve İstanbul kıyı şeridinde yüzyıllardır bilinen bir sokak lezzeti olan midye dolma, özellikle İzmir'in Kordon ve Konak gibi sahil semtlerinde akşam gezmelerinin vazgeçilmezi hâline gelmiştir. Kabuğu yarı aralanmış midyeye bol limon sıkılıp ayaküstü yenmesi, bu lezzetin en karakteristik sunum biçimidir.</p>
+  </div>
+</div>
+
+<div class="modal-overlay" id="tipsModal">
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="tipsTitle">
+    <button class="modal-close" id="tipsClose" aria-label="Kapat">✕</button>
+    <span class="eyebrow">Ustasından</span>
+    <h3 id="tipsTitle">Püf Noktaları</h3>
+    <ul class="tips-list">
+      <li>Taze midyenin kabuğu sıkı kapalı olur ve elinize aldığınızda ağır gelir (içi suyla doludur); açık duran ya da hafif gelenleri ayıklayın.</li>
+      <li>İç pilavı ne çok kuru ne çok sulu bırakın; az miktarda tarçın ve yenibahar aromayı belirgin şekilde zenginleştirir.</li>
+      <li>Midyeleri tencereye sıkı sıkı, aralarında boşluk kalmadan dizmek pişerken açılıp dağılmalarını önler.</li>
+      <li>Temizlik için midyeleri tuzlu suda 2-3 saat bekletmek içindeki kumu tamamen çıkarır.</li>
+    </ul>
   </div>
 </div>
 </main>

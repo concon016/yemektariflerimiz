@@ -621,28 +621,6 @@ p { line-height: 1.7; margin: 0 0 1em; color: var(--ink-muted); }
 }
 .recipe-title-row h1 { margin: 0; font-size: clamp(26px, 3.6vw, 38px); }
 
-.info-btn {
-  flex-shrink: 0;
-  width: 32px; height: 32px;
-  border-radius: 50%;
-  border: 1.5px solid var(--accent);
-  background: var(--accent-soft);
-  color: var(--accent);
-  font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 700;
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 4px;
-  transition: transform 0.15s ease, background-color 0.2s ease;
-}
-.info-btn:hover { transform: scale(1.08); background: var(--accent); color: var(--accent-ink); }
-
-.info-btn.tips-btn { border-color: var(--gold); background: var(--gold-soft); color: var(--gold); font-style: normal; font-size: 14px; }
-.info-btn.tips-btn:hover { background: var(--gold); color: #3a2c14; }
-
 .recipe-meta-row {
   display: flex;
   flex-wrap: wrap;
@@ -660,6 +638,19 @@ p { line-height: 1.7; margin: 0 0 1em; color: var(--ink-muted); }
   font-size: 13.5px;
   color: var(--ink);
 }
+
+.pill-action {
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+  font-weight: 700;
+  transition: transform 0.15s ease, background-color 0.2s ease;
+}
+.pill-action:hover { transform: translateY(-1px); }
+.pill-action:not(.pill-gold) { background: var(--accent-soft); border: 1px solid var(--accent); color: var(--accent); }
+.pill-action:not(.pill-gold):hover { background: var(--accent); color: var(--accent-ink); }
+.pill-action.pill-gold { background: var(--gold-soft); border: 1px solid var(--gold); color: var(--gold); }
+.pill-action.pill-gold:hover { background: var(--gold); color: #3a2c14; }
 
 .recipe-lead { font-size: 17px; max-width: 68ch; }
 
@@ -719,9 +710,7 @@ p { line-height: 1.7; margin: 0 0 1em; color: var(--ink-muted); }
 }
 .step-list li p { margin: 4px 0 0; color: var(--ink); font-size: 15px; }
 
-.tips-block { margin-top: 48px; padding-top: 36px; border-top: 1px dashed var(--line); }
-.tips-block h2 { font-size: 20px; margin-bottom: 16px; }
-.tips-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; list-style: none; }
+.tips-list { display: grid; gap: 10px; list-style: none; margin-top: 6px; }
 .tips-list li {
   padding: 14px 18px;
   background: var(--gold-soft);

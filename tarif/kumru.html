@@ -65,8 +65,6 @@
       <div class="recipe-header-text">
         <div class="recipe-title-row">
           <h1>Kumru</h1>
-          <button class="info-btn" id="historyOpen" aria-label="Kumru tarihçesini oku">i</button>
-          <a href="#puf-noktalari" class="info-btn tips-btn" aria-label="Püf noktalarına git">💡</a>
         </div>
         <span class="recipe-region">Ege Mutfağı · Sandviç · Sokak Lezzeti</span>
         <p class="recipe-lead">Nohut mayalı, kuş gövdesine benzeyen özel ekmeğin içine sucuk, kaşar ve közlenmiş biberin doldurulduğu, Çeşme'den çıkıp tüm Ege'ye yayılan sandviç.</p>
@@ -74,6 +72,8 @@
           <span class="pill">⏱ 20 dk</span>
           <span class="pill">👤 Kolay</span>
           <span class="pill">🍽 2 kişilik</span>
+          <button class="pill pill-action" id="historyOpen">📖 Tarihçesi</button>
+          <button class="pill pill-action pill-gold" id="tipsOpen">💡 Püf Noktaları</button>
         </div>
       </div>
       <div class="recipe-header-photo">
@@ -108,16 +108,6 @@
           <li><p>Sıcak servis edin.</p></li>
         </ol>
       </div>
-    </div>
-
-    <div class="tips-block" id="puf-noktalari">
-      <h2>💡 Püf Noktaları</h2>
-      <ul class="tips-list">
-        <li>Ekmeğin iç yüzeyine ince bir tabaka tereyağı sürmek hem lezzet katar hem hafif çıtırlık kazandırır.</li>
-        <li>Kaşar peynirinin güzelce erimesi için sandviçi kapalı bir tavada veya kısa süre fırında ısıtın.</li>
-        <li>Sucuğu önceden hafifçe kavurmak lezzetini belirgin şekilde yoğunlaştırır.</li>
-        <li>Uzun süre pişirmekten kaçının — ekmek sertleşir, kısa ve yüksek ısı en iyi sonucu verir.</li>
-      </ul>
     </div>
   </div>
 </section>
@@ -190,6 +180,20 @@
     <span class="eyebrow">Tarihçesi</span>
     <h3 id="historyTitle">Kumru nereden geliyor?</h3>
     <p>Kökü 1960'lara uzanan kumru, Çeşmeli balıkçıların denizde karınlarını doyurmak için yediği sade bir tulum peyniri, domates ve biber sandviciyle başlamıştır. Zamanla Çeşme'de Kumrucu Hüseyin adlı bir esnafın elinde sucuk, salam ve kaşar peynirle zenginleşerek bugünkü ızgara &quot;Çeşme kumrusu&quot;na dönüşmüştür. Ekmeğinin orta kısmı geniş, uçlara doğru incelen şekli, kumru kuşunun gövdesine benzediği için bu adı almıştır.</p>
+  </div>
+</div>
+
+<div class="modal-overlay" id="tipsModal">
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="tipsTitle">
+    <button class="modal-close" id="tipsClose" aria-label="Kapat">✕</button>
+    <span class="eyebrow">Ustasından</span>
+    <h3 id="tipsTitle">Püf Noktaları</h3>
+    <ul class="tips-list">
+      <li>Ekmeğin iç yüzeyine ince bir tabaka tereyağı sürmek hem lezzet katar hem hafif çıtırlık kazandırır.</li>
+      <li>Kaşar peynirinin güzelce erimesi için sandviçi kapalı bir tavada veya kısa süre fırında ısıtın.</li>
+      <li>Sucuğu önceden hafifçe kavurmak lezzetini belirgin şekilde yoğunlaştırır.</li>
+      <li>Uzun süre pişirmekten kaçının — ekmek sertleşir, kısa ve yüksek ısı en iyi sonucu verir.</li>
+    </ul>
   </div>
 </div>
 </main>

@@ -70,20 +70,23 @@
     });
   });
 
-  /* Tarihçe (info) modal — tarif sayfalarında kullanılır */
-  var historyOpen = document.getElementById("historyOpen");
-  var historyModal = document.getElementById("historyModal");
-  var historyClose = document.getElementById("historyClose");
-  if (historyOpen && historyModal && historyClose) {
-    historyOpen.addEventListener("click", function () { historyModal.classList.add("open"); });
-    historyClose.addEventListener("click", function () { historyModal.classList.remove("open"); });
-    historyModal.addEventListener("click", function (e) {
-      if (e.target === historyModal) historyModal.classList.remove("open");
+  /* Tarihçe / Püf Noktaları modalları — tarif sayfalarında kullanılır */
+  function wireModal(openId, modalId, closeId) {
+    var openBtn = document.getElementById(openId);
+    var modal = document.getElementById(modalId);
+    var closeBtn = document.getElementById(closeId);
+    if (!openBtn || !modal || !closeBtn) return;
+    openBtn.addEventListener("click", function () { modal.classList.add("open"); });
+    closeBtn.addEventListener("click", function () { modal.classList.remove("open"); });
+    modal.addEventListener("click", function (e) {
+      if (e.target === modal) modal.classList.remove("open");
     });
     document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape") historyModal.classList.remove("open");
+      if (e.key === "Escape") modal.classList.remove("open");
     });
   }
+  wireModal("historyOpen", "historyModal", "historyClose");
+  wireModal("tipsOpen", "tipsModal", "tipsClose");
 
   /* Search — filters visible recipe cards by name/region (base demo) */
   var searchForm = document.getElementById("searchForm");

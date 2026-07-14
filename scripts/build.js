@@ -211,8 +211,6 @@ function recipePage(tarif) {
       <div class="recipe-header-text">
         <div class="recipe-title-row">
           <h1>${esc(tarif.ad)}</h1>
-          <button class="info-btn" id="historyOpen" aria-label="${esc(tarif.ad)} tarihçesini oku">i</button>
-          ${tarif.ipuclari && tarif.ipuclari.length ? `<a href="#puf-noktalari" class="info-btn tips-btn" aria-label="Püf noktalarına git">💡</a>` : ""}
         </div>
         <span class="recipe-region">${esc(yr.ad)} Mutfağı · ${esc(tarif.kategori)}</span>
         <p class="recipe-lead">${esc(tarif.ozet)}</p>
@@ -220,6 +218,8 @@ function recipePage(tarif) {
           <span class="pill">⏱ ${esc(tarif.sure)}</span>
           <span class="pill">👤 ${esc(tarif.zorluk)}</span>
           <span class="pill">🍽 ${esc(tarif.porsiyon)}</span>
+          <button class="pill pill-action" id="historyOpen">📖 Tarihçesi</button>
+          ${tarif.ipuclari && tarif.ipuclari.length ? `<button class="pill pill-action pill-gold" id="tipsOpen">💡 Püf Noktaları</button>` : ""}
         </div>
       </div>
       <div class="recipe-header-photo">
@@ -245,13 +245,6 @@ function recipePage(tarif) {
         </ol>
       </div>
     </div>
-
-    ${tarif.ipuclari && tarif.ipuclari.length ? `<div class="tips-block" id="puf-noktalari">
-      <h2>💡 Püf Noktaları</h2>
-      <ul class="tips-list">
-        ${tarif.ipuclari.map((t) => `<li>${esc(t)}</li>`).join("\n        ")}
-      </ul>
-    </div>` : ""}
   </div>
 </section>
 
@@ -277,7 +270,18 @@ ${related.length ? `<section class="section section-alt related-recipes">
     <h3 id="historyTitle">${esc(tarif.ad)} nereden geliyor?</h3>
     <p>${esc(tarif.tarihce)}</p>
   </div>
-</div>`;
+</div>
+
+${tarif.ipuclari && tarif.ipuclari.length ? `<div class="modal-overlay" id="tipsModal">
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="tipsTitle">
+    <button class="modal-close" id="tipsClose" aria-label="Kapat">✕</button>
+    <span class="eyebrow">Ustasından</span>
+    <h3 id="tipsTitle">Püf Noktaları</h3>
+    <ul class="tips-list">
+      ${tarif.ipuclari.map((t) => `<li>${esc(t)}</li>`).join("\n      ")}
+    </ul>
+  </div>
+</div>` : ""}`;
 
   return page(title, description, canonicalPath, "tarifler", body, jsonLd(recipeSchema) + "\n" + jsonLd(breadcrumbSchema));
 }
