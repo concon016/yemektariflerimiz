@@ -1,77 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://yemektariflerimiz-sitesi.vercel.app/</loc>
+    <loc>https://yemektariflerimiz.vercel.app/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://yemektariflerimiz-sitesi.vercel.app/yoreler.html</loc>
+    <loc>https://yemektariflerimiz.vercel.app/yoreler.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yemektariflerimiz-sitesi.vercel.app/tarifler.html</loc>
+    <loc>https://yemektariflerimiz.vercel.app/tarifler.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://yemektariflerimiz-sitesi.vercel.app/yoreler/ege.html</loc>
+    <loc>https://yemektariflerimiz.vercel.app/yoreler/ege.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yemektariflerimiz-sitesi.vercel.app/yoreler/karadeniz.html</loc>
+    <loc>https://yemektariflerimiz.vercel.app/yoreler/karadeniz.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://yemektariflerimiz-sitesi.vercel.app/yoreler/akdeniz.html</loc>
+    <loc>https://yemektariflerimiz.vercel.app/yoreler/akdeniz.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://yemektariflerimiz-sitesi.vercel.app/yoreler/guneydogu-anadolu.html</loc>
+    <loc>https://yemektariflerimiz.vercel.app/yoreler/guneydogu-anadolu.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://yemektariflerimiz-sitesi.vercel.app/yoreler/ic-anadolu.html</loc>
+    <loc>https://yemektariflerimiz.vercel.app/yoreler/ic-anadolu.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://yemektariflerimiz-sitesi.vercel.app/yoreler/dogu-anadolu.html</loc>
+    <loc>https://yemektariflerimiz.vercel.app/yoreler/dogu-anadolu.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://yemektariflerimiz-sitesi.vercel.app/yoreler/marmara.html</loc>
+    <loc>https://yemektariflerimiz.vercel.app/yoreler/marmara.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://yemektariflerimiz-sitesi.vercel.app/tarif/imam-bayildi.html</loc>
+    <loc>https://yemektariflerimiz.vercel.app/tarif/imam-bayildi.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://yemektariflerimiz-sitesi.vercel.app/tarif/zeytinyagli-enginar.html</loc>
+    <loc>https://yemektariflerimiz.vercel.app/tarif/zeytinyagli-enginar.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://yemektariflerimiz-sitesi.vercel.app/tarif/midye-dolma.html</loc>
+    <loc>https://yemektariflerimiz.vercel.app/tarif/midye-dolma.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://yemektariflerimiz-sitesi.vercel.app/tarif/boyoz.html</loc>
+    <loc>https://yemektariflerimiz.vercel.app/tarif/boyoz.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://yemektariflerimiz-sitesi.vercel.app/tarif/kumru.html</loc>
+    <loc>https://yemektariflerimiz.vercel.app/tarif/kumru.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
