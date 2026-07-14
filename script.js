@@ -88,6 +88,23 @@
   wireModal("historyOpen", "historyModal", "historyClose");
   wireModal("tipsOpen", "tipsModal", "tipsClose");
 
+  /* Paylaş butonu — Web Share API, yoksa panoya kopyala */
+  var shareBtn = document.getElementById("shareBtn");
+  if (shareBtn) {
+    shareBtn.addEventListener("click", function () {
+      var shareData = { title: document.title, url: window.location.href };
+      if (navigator.share) {
+        navigator.share(shareData).catch(function () {});
+      } else if (navigator.clipboard) {
+        navigator.clipboard.writeText(window.location.href).then(function () {
+          var original = shareBtn.textContent;
+          shareBtn.textContent = "✓ Kopyalandı";
+          setTimeout(function () { shareBtn.textContent = original; }, 1800);
+        }).catch(function () {});
+      }
+    });
+  }
+
   /* Porsiyon hesaplayıcı — malzeme miktarlarındaki baştaki sayıyı ölçekler */
   function scaleIngredientText(text, factor) {
     var m = text.match(/^(\d+(?:[.,]\d+)?)(?:-(\d+(?:[.,]\d+)?))?(\s.*)$/);
@@ -150,6 +167,103 @@
     var current = 0;
     var wakeLock = null;
 
+    /* Adım süresi zamanlayıcısı */
+    var timerBox = document.getElementById("cookTimer");
+    var timerDisplay = document.getElementById("cookTimerDisplay");
+    var timerMinus = document.getElementById("cookTimerMinus");
+    var timerPlus = document.getElementById("cookTimerPlus");
+    var timerStart = document.getElementById("cookTimerStart");
+    var timerPause = document.getElementById("cookTimerPause");
+    var timerReset = document.getElementById("cookTimerReset");
+    var timerSeconds = 0;
+    var timerTotal = 0;
+    var timerInterval = null;
+
+    function parseStepMinutes(text) {
+      var m = text.match(/(\d+)(?:\s*-\s*(\d+))?\s*(saat|sa\.?|dakika|dk\.?)/i);
+      if (!m) return null;
+      var n = m[2] ? parseInt(m[2], 10) : parseInt(m[1], 10);
+      if (/^sa/i.test(m[3])) n *= 60;
+      return n;
+    }
+
+    function formatTime(totalSec) {
+      var mm = Math.floor(totalSec / 60);
+      var ss = totalSec % 60;
+      return (mm < 10 ? "0" : "") + mm + ":" + (ss < 10 ? "0" : "") + ss;
+    }
+
+    function beep() {
+      try {
+        var Ctx = window.AudioContext || window.webkitAudioContext;
+        var ctx = new Ctx();
+        var o = ctx.createOscillator();
+        var g = ctx.createGain();
+        o.connect(g);
+        g.connect(ctx.destination);
+        o.frequency.value = 880;
+        g.gain.value = 0.18;
+        o.start();
+        setTimeout(function () { o.stop(); ctx.close(); }, 500);
+      } catch (e) {}
+    }
+
+    function stopTimerInterval() {
+      if (timerInterval) { clearInterval(timerInterval); timerInterval = null; }
+    }
+
+    function setTimerControls(state) {
+      timerStart.hidden = state !== "idle";
+      timerPause.hidden = state !== "running";
+      timerReset.hidden = state === "idle";
+      timerMinus.disabled = timerPlus.disabled = state === "running";
+    }
+
+    function resetTimerForStep() {
+      stopTimerInterval();
+      timerBox.classList.remove("ringing");
+      var mins = parseStepMinutes(data.adimlar[current]);
+      if (mins === null) { timerBox.hidden = true; return; }
+      timerBox.hidden = false;
+      timerTotal = mins * 60;
+      timerSeconds = timerTotal;
+      timerDisplay.textContent = formatTime(timerSeconds);
+      setTimerControls("idle");
+    }
+
+    function tickTimer() {
+      timerSeconds--;
+      timerDisplay.textContent = formatTime(Math.max(timerSeconds, 0));
+      if (timerSeconds <= 0) {
+        stopTimerInterval();
+        timerBox.classList.add("ringing");
+        beep();
+        setTimerControls("done");
+        if (navigator.vibrate) navigator.vibrate([200, 100, 200]);
+      }
+    }
+
+    timerMinus.addEventListener("click", function () {
+      timerTotal = Math.max(60, timerTotal - 60);
+      timerSeconds = timerTotal;
+      timerDisplay.textContent = formatTime(timerSeconds);
+    });
+    timerPlus.addEventListener("click", function () {
+      timerTotal += 60;
+      timerSeconds = timerTotal;
+      timerDisplay.textContent = formatTime(timerSeconds);
+    });
+    timerStart.addEventListener("click", function () {
+      timerBox.classList.remove("ringing");
+      setTimerControls("running");
+      timerInterval = setInterval(tickTimer, 1000);
+    });
+    timerPause.addEventListener("click", function () {
+      stopTimerInterval();
+      setTimerControls("idle");
+    });
+    timerReset.addEventListener("click", resetTimerForStep);
+
     function renderIngredients() {
       ingList.innerHTML = "";
       var liveLabels = document.querySelectorAll("#ingredientList .ing-text");
@@ -173,6 +287,7 @@
       progressBar.style.width = (((current + 1) / data.adimlar.length) * 100) + "%";
       prevBtn.style.visibility = current === 0 ? "hidden" : "visible";
       nextBtn.textContent = current === data.adimlar.length - 1 ? "Tamamladım ✓" : "İlerle →";
+      resetTimerForStep();
     }
 
     function requestWakeLock() {
@@ -195,6 +310,7 @@
     function closeCook() {
       overlay.classList.remove("open");
       releaseWakeLock();
+      stopTimerInterval();
     }
     closeBtn.addEventListener("click", closeCook);
     finishBtn.addEventListener("click", closeCook);
@@ -223,18 +339,28 @@
   })();
 
   /* Search — filters visible recipe cards by name/region (base demo) */
+  /* Boşluk/Türkçe karakter farkı olsa da eşleşsin diye normalize ediyoruz (örn. "imambayıldı" == "İmam Bayıldı") */
+  function normalizeTr(str) {
+    return str
+      .toLowerCase()
+      .replace(/İ/g, "i").replace(/I/g, "ı")
+      .replace(/ı/g, "i").replace(/ş/g, "s").replace(/ğ/g, "g")
+      .replace(/ü/g, "u").replace(/ö/g, "o").replace(/ç/g, "c")
+      .replace(/[^a-z0-9]/g, "");
+  }
+
   var searchForm = document.getElementById("searchForm");
   var searchInput = document.getElementById("searchInput");
   if (searchForm && searchInput) {
     searchForm.addEventListener("submit", function (e) {
       e.preventDefault();
-      var q = searchInput.value.trim().toLowerCase();
+      var q = normalizeTr(searchInput.value.trim());
       var cards = document.querySelectorAll("#recipesGrid .recipe-card");
       var recipesSection = document.getElementById("recipes");
       var matchCount = 0;
       cards.forEach(function (card) {
-        var name = (card.getAttribute("data-name") || "").toLowerCase();
-        var region = (card.getAttribute("data-region") || "").toLowerCase();
+        var name = normalizeTr(card.getAttribute("data-name") || "");
+        var region = normalizeTr(card.getAttribute("data-region") || "");
         var match = !q || name.indexOf(q) !== -1 || region.indexOf(q) !== -1;
         card.style.display = match ? "" : "none";
         if (match) matchCount++;

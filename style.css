@@ -635,6 +635,8 @@ p { line-height: 1.7; margin: 0 0 1em; color: var(--ink-muted); }
 .pill-action:not(.pill-gold):hover { background: var(--accent); color: var(--accent-ink); }
 .pill-action.pill-gold { background: var(--gold-soft); border: 1px solid var(--gold); color: var(--gold); }
 .pill-action.pill-gold:hover { background: var(--gold); color: #3a2c14; }
+.pill-action.pill-share { background: var(--olive-soft); border: 1px solid var(--olive); color: var(--olive); }
+.pill-action.pill-share:hover { background: var(--olive); color: #fff; }
 
 .recipe-lead { font-size: 17px; max-width: 68ch; }
 
@@ -846,6 +848,38 @@ p { line-height: 1.7; margin: 0 0 1em; color: var(--ink-muted); }
 }
 .cook-nav { display: flex; gap: 12px; }
 .cook-nav .btn { flex: 1; justify-content: center; }
+
+.cook-timer {
+  background: var(--bg-soft);
+  border-radius: var(--radius);
+  padding: 18px;
+  margin: 0 0 22px;
+}
+.cook-timer-adjust {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+.cook-timer-adjust button {
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 16px;
+  cursor: pointer;
+}
+.cook-timer-adjust button:hover { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+#cookTimerDisplay { font-family: var(--font-display); font-size: 30px; font-weight: 700; min-width: 4ch; color: var(--ink); }
+.cook-timer-controls { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.cook-timer-controls .btn { padding: 9px 18px; font-size: 13.5px; }
+.cook-timer.ringing { animation: cookTimerPulse 0.8s ease infinite; }
+@keyframes cookTimerPulse {
+  0%, 100% { background: var(--bg-soft); }
+  50% { background: var(--accent-soft); }
+}
 .cook-done-emoji { font-size: 52px; display: block; margin-bottom: 8px; }
 
 @media (max-width: 480px) {

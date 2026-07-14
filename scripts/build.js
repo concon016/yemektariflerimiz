@@ -224,6 +224,7 @@ function recipePage(tarif) {
           </div>
           <button class="pill pill-action" id="historyOpen">📖 Tarihçesi</button>
           ${tarif.ipuclari && tarif.ipuclari.length ? `<button class="pill pill-action pill-gold" id="tipsOpen">💡 Püf Noktaları</button>` : ""}
+          <button class="pill pill-action pill-share" id="shareBtn">🔗 Paylaş</button>
         </div>
         <button class="btn btn-primary cook-start-btn" id="cookOpen">🍳 Hadi Başlayalım</button>
       </div>
@@ -308,6 +309,20 @@ ${tarif.ipuclari && tarif.ipuclari.length ? `<div class="modal-overlay" id="tips
       <div class="cook-progress"><div class="cook-progress-bar" id="cookProgressBar"></div></div>
       <span class="cook-step-count" id="cookStepCount"></span>
       <p class="cook-step-text" id="cookStepText"></p>
+
+      <div class="cook-timer" id="cookTimer" hidden>
+        <div class="cook-timer-adjust" id="cookTimerAdjust">
+          <button type="button" id="cookTimerMinus" aria-label="Süreyi azalt">−</button>
+          <span id="cookTimerDisplay">00:00</span>
+          <button type="button" id="cookTimerPlus" aria-label="Süreyi artır">+</button>
+        </div>
+        <div class="cook-timer-controls">
+          <button type="button" class="btn btn-outline" id="cookTimerStart">▶ Zamanlayıcıyı Başlat</button>
+          <button type="button" class="btn btn-outline" id="cookTimerPause" hidden>⏸ Duraklat</button>
+          <button type="button" class="btn btn-outline" id="cookTimerReset" hidden>↺ Sıfırla</button>
+        </div>
+      </div>
+
       <div class="cook-nav">
         <button class="btn btn-outline" id="cookPrev">◀ Geri</button>
         <button class="btn btn-primary" id="cookNext">İlerle →</button>
