@@ -321,7 +321,6 @@ function regionPage(yr) {
 
 <section class="region-hero">
   <div class="container">
-    <span class="region-emoji-big">${yr.emoji}</span>
     <span class="eyebrow">${esc(yr.bolumNo)}</span>
     <h1>${esc(yr.ad)} Mutfağı</h1>
     <p>${esc(yr.aciklama)}</p>
@@ -363,7 +362,6 @@ function regionsIndexPage() {
       ${yoreler.map((y) => {
         const count = tariflerByYore(y.slug).length;
         return `<a class="region-card" href="/yoreler/${y.slug}.html" style="--region-color:${y.renk}">
-        <span class="region-emoji">${y.emoji}</span>
         <span class="region-no">${esc(y.bolumNo)}</span>
         <h3>${esc(y.ad)}</h3>
         <span class="count">${count ? count + " tarif" : "yakında"}</span>

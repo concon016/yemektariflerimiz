@@ -6,7 +6,6 @@ module.exports = [
     slug: "ege",
     ad: "Ege",
     bolumNo: "Bölüm I",
-    emoji: "🫒",
     renk: "#C9992F",
     aciklama:
       "Zeytinyağı, taze ot ve deniz ürünlerinin hâkim olduğu Ege mutfağı, hafif ama derin lezzetli bir sofra geleneğidir. İzmir'den Bodrum'a uzanan kıyı şeridinde, sebzeler çoğu zaman etsiz ve zeytinyağlı pişirilir; sokak lezzetleri ise kendine has bir kimlik taşır.",
@@ -17,7 +16,6 @@ module.exports = [
     slug: "karadeniz",
     ad: "Karadeniz",
     bolumNo: "Bölüm II",
-    emoji: "🌊",
     renk: "#556B3D",
     aciklama:
       "Mısır, hamsi ve yeşilin buluştuğu Karadeniz sofraları, sade malzemelerle güçlü lezzetler çıkarmasıyla tanınır.",
@@ -27,7 +25,6 @@ module.exports = [
     slug: "akdeniz",
     ad: "Akdeniz",
     bolumNo: "Bölüm III",
-    emoji: "🌶️",
     renk: "#A6402C",
     aciklama:
       "Narenciye, zeytinyağı ve acı baharatların dengelendiği Akdeniz mutfağı, güneşin sofraya yansıyan hâlidir.",
@@ -37,7 +34,6 @@ module.exports = [
     slug: "guneydogu-anadolu",
     ad: "Güneydoğu Anadolu",
     bolumNo: "Bölüm IV",
-    emoji: "🍢",
     renk: "#7d2f1f",
     aciklama:
       "Kebap kültürünün ve baharatın zirve yaptığı Güneydoğu mutfağı, közün ve emeğin buluştuğu bir gelenektir.",
@@ -47,7 +43,6 @@ module.exports = [
     slug: "ic-anadolu",
     ad: "İç Anadolu",
     bolumNo: "Bölüm V",
-    emoji: "🥟",
     renk: "#8a6d3b",
     aciklama:
       "Hamur işlerinin ustalıkla işlendiği İç Anadolu mutfağı, kışa hazırlık kültürüyle de bilinir.",
@@ -57,7 +52,6 @@ module.exports = [
     slug: "dogu-anadolu",
     ad: "Doğu Anadolu",
     bolumNo: "Bölüm VI",
-    emoji: "🏔️",
     renk: "#3d4f2b",
     aciklama:
       "Zorlu kış şartlarının şekillendirdiği Doğu Anadolu mutfağı, et ve süt ürünlerini ustaca değerlendirir.",
@@ -67,7 +61,6 @@ module.exports = [
     slug: "marmara",
     ad: "Marmara",
     bolumNo: "Bölüm VII",
-    emoji: "🥐",
     renk: "#4b5f7a",
     aciklama:
       "Osmanlı saray mutfağının izlerini taşıyan Marmara mutfağı, İstanbul'un kozmopolit lezzet mirasını yansıtır.",
