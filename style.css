@@ -705,8 +705,9 @@ p { line-height: 1.7; margin: 0 0 1em; color: var(--ink-muted); }
 .step-list li {
   counter-increment: step;
   display: flex;
+  align-items: center;
   gap: 16px;
-  padding: 0 0 26px;
+  padding: 0 0 12px;
   position: relative;
 }
 .step-list li::before {
@@ -730,7 +731,7 @@ p { line-height: 1.7; margin: 0 0 1em; color: var(--ink-muted); }
   width: 1px;
   background: var(--line);
 }
-.step-list li p { margin: 4px 0 0; color: var(--ink); font-size: 15px; }
+.step-list li p { margin: 0; color: var(--ink); font-size: 15px; line-height: 1.45; }
 
 .tips-list { display: grid; gap: 10px; list-style: none; margin-top: 6px; }
 .tips-list li {
