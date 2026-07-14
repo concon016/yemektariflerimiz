@@ -28,6 +28,20 @@ function esc(str) {
   return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 }
 
+// Sayfadaki "Yapılışı" listesini daha az parçalı göstermek için ardışık
+// ince taneli adımları birleştirir. Pişirme modu ve schema.org verisi
+// hâlâ orijinal, ince taneli tarif.adimlar dizisini kullanır.
+function groupSteps(adimlar, gruplar) {
+  if (!gruplar) return adimlar;
+  const out = [];
+  let i = 0;
+  gruplar.forEach((n) => {
+    out.push(adimlar.slice(i, i + n).join(" "));
+    i += n;
+  });
+  return out;
+}
+
 function head(title, description, canonicalPath) {
   const url = SITE_URL + canonicalPath;
   return `<meta charset="UTF-8">
@@ -261,7 +275,7 @@ function recipePage(tarif) {
       <div>
         <h2>Yapılışı</h2>
         <ol class="step-list">
-          ${tarif.adimlar.map((s) => `<li><p>${esc(s)}</p></li>`).join("\n          ")}
+          ${groupSteps(tarif.adimlar, tarif.adimGruplari).map((s) => `<li><p>${esc(s)}</p></li>`).join("\n          ")}
         </ol>
       </div>
     </div>

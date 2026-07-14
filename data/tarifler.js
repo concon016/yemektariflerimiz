@@ -51,6 +51,7 @@ module.exports = [
       "180°C fırında ya da kısık ateşte patlıcanlar tamamen yumuşayana kadar 30-40 dakika pişirin.",
       "Fırından çıkarıp ılık ya da soğuk servis edin.",
     ],
+    adimGruplari: [3, 2, 2, 2, 1, 1, 2],
     ipuclari: [
       "Patlıcanları alacalı (çizgili) soyup en az 20-30 dakika tuzlu suda bekletmek hem acılığını alır hem kızartırken daha az yağ çekmesini sağlar.",
       "İç harçtaki soğan ve sarımsağı bol zeytinyağında kısık ateşte yavaşça kavurmak lezzeti derinleştirir, acele etmeyin.",
@@ -106,6 +107,7 @@ module.exports = [
       "Enginarlar yumuşayana kadar kısık ateşte pişirin.",
       "Soğuduktan sonra üzerine taze dereotu serperek servis edin.",
     ],
+    adimGruplari: [2, 2, 2, 2, 2, 2],
     ipuclari: [
       "Enginarları ayıklarken kesilen yüzeyleri hemen limonlu suya batırın; kararmayı önler.",
       "Bekletme suyuna bir tutam un katmak (bulanık su) oksijenle temasını keserek kararmayı daha da azaltır.",
@@ -163,6 +165,7 @@ module.exports = [
       "Kapağını kapatıp yarım saat kısık ateşte pişirin.",
       "Soğuduktan sonra bol limonla servis edin.",
     ],
+    adimGruplari: [1, 3, 2, 2, 2, 3, 1],
     ipuclari: [
       "Taze midyenin kabuğu sıkı kapalı olur ve elinize aldığınızda ağır gelir (içi suyla doludur); açık duran ya da hafif gelenleri ayıklayın.",
       "İç pilavı ne çok kuru ne çok sulu bırakın; az miktarda tarçın ve yenibahar aromayı belirgin şekilde zenginleştirir.",
@@ -215,6 +218,7 @@ module.exports = [
       "Fırını 200°C'ye önceden ısıtın.",
       "Boyozları altın rengini alana kadar 15-18 dakika pişirin.",
     ],
+    adimGruplari: [3, 3, 1, 2, 2, 2],
     ipuclari: [
       "Un yüksek proteinli (sert, ekmeklik/baklavalık) olmalı; hamur da sert değil, yumuşak kıvamda yoğrulmalı.",
       "Yağlanmış hamur bezeleri en az 1-1.5 saat dinlenmeden açılırsa katları ayrılmaz, sert kalır — bu adımı asla atlamayın.",
@@ -266,6 +270,7 @@ module.exports = [
       "Tost makinesinde ya da sacda kaşar eriyip ekmek hafifçe kızarana kadar pişirin.",
       "Sıcak servis edin.",
     ],
+    adimGruplari: [2, 3, 4, 2],
     ipuclari: [
       "Ekmeğin iç yüzeyine ince bir tabaka tereyağı sürmek hem lezzet katar hem hafif çıtırlık kazandırır.",
       "Kaşar peynirinin güzelce erimesi için sandviçi kapalı bir tavada veya kısa süre fırında ısıtın.",
