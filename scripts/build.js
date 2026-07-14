@@ -217,25 +217,31 @@ function recipePage(tarif) {
         <div class="recipe-meta-row">
           <span class="pill">⏱ ${esc(tarif.sure)}</span>
           <span class="pill">👤 ${esc(tarif.zorluk)}</span>
-          <span class="pill">🍽 ${esc(tarif.porsiyon)}</span>
+          <div class="pill serving-adjust" id="servingAdjust" data-base="${tarif.porsiyonSayisi}">
+            <button type="button" id="servMinus" aria-label="Porsiyonu azalt">−</button>
+            🍽 <span id="servCount">${tarif.porsiyonSayisi}</span> ${esc(tarif.porsiyonEtiket)}
+            <button type="button" id="servPlus" aria-label="Porsiyonu artır">+</button>
+          </div>
           <button class="pill pill-action" id="historyOpen">📖 Tarihçesi</button>
           ${tarif.ipuclari && tarif.ipuclari.length ? `<button class="pill pill-action pill-gold" id="tipsOpen">💡 Püf Noktaları</button>` : ""}
         </div>
       </div>
       <div class="recipe-header-photo">
         <div class="recipe-header-photo-inner">
-          <span class="page-no">s. ${tarif.sayfaNo}</span>
           <img src="${tarif.gorsel}" alt="${esc(tarif.gorselAlt)}" loading="eager">
+          <a class="photo-credit-badge" href="${tarif.fotoKaynak}" target="_blank" rel="noopener noreferrer" title="Fotoğraf: ${esc(tarif.fotoKredi)} · Wikimedia Commons, CC BY-SA 4.0" aria-label="Fotoğraf kaynağı: ${esc(tarif.fotoKredi)}, Wikimedia Commons, CC BY-SA 4.0">©</a>
         </div>
-        <p class="photo-credit">Fotoğraf: ${esc(tarif.fotoKredi)} · <a href="${tarif.fotoKaynak}" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>, CC BY-SA 4.0</p>
       </div>
     </div>
 
     <div class="recipe-columns">
       <div>
         <h2>Malzemeler</h2>
-        <ul class="ingredient-list">
-          ${tarif.malzemeler.map((m) => `<li>${esc(m)}</li>`).join("\n          ")}
+        <ul class="ingredient-list" id="ingredientList">
+          ${tarif.malzemeler.map((m, i) => `<li>
+            <input type="checkbox" id="ing-${i}" class="ing-check">
+            <label for="ing-${i}" class="ing-text" data-orig="${esc(m)}">${esc(m)}</label>
+          </li>`).join("\n          ")}
         </ul>
       </div>
       <div>
@@ -252,7 +258,7 @@ ${related.length ? `<section class="section section-alt related-recipes">
   <div class="container">
     <div class="section-head">
       <div>
-        <span class="eyebrow">${esc(yr.ad)} Bölümünden</span>
+        <span class="eyebrow">${esc(yr.ad)} Mutfağından</span>
         <h2>Bunlar da hoşunuza gidebilir</h2>
       </div>
       <a href="/yoreler/${yr.slug}.html" class="see-all">${esc(yr.ad)}'nin tüm tarifleri →</a>
@@ -289,9 +295,7 @@ ${tarif.ipuclari && tarif.ipuclari.length ? `<div class="modal-overlay" id="tips
 function recipeCard(tarif) {
   return `<article class="recipe-card reveal in">
         <a href="/tarif/${tarif.slug}.html" style="display:block;">
-          <div class="recipe-media" style="background-image:url('${tarif.gorsel}'); background-size:cover; background-position:center;">
-            <span class="page-no">s. ${tarif.sayfaNo}</span>
-          </div>
+          <div class="recipe-media" style="background-image:url('${tarif.gorsel}'); background-size:cover; background-position:center;"></div>
         </a>
         <div class="recipe-body">
           <span class="recipe-region">${esc(yoreGetir(tarif.yore).ad)}</span>
@@ -326,7 +330,6 @@ function regionPage(yr) {
 
 <section class="region-hero">
   <div class="container">
-    <span class="eyebrow">${esc(yr.bolumNo)}</span>
     <h1>${esc(yr.ad)} Mutfağı</h1>
     <p>${esc(yr.aciklama)}</p>
   </div>
@@ -337,9 +340,9 @@ function regionPage(yr) {
     ${recs.length ? `<div class="recipes-grid">
       ${recs.map((r) => recipeCard(r)).join("\n      ")}
     </div>` : `<div class="empty-state">
-      <span class="emoji">📖</span>
-      <h2>${esc(yr.ad)} bölümü hazırlanıyor</h2>
-      <p>Bu yörenin tarifleri özenle yazılıyor, çok yakında burada olacak. O zamana kadar <a href="/yoreler/ege.html" style="color:var(--accent); font-weight:700;">Ege bölümüne</a> göz atabilirsiniz.</p>
+      <span class="emoji">🍳</span>
+      <h2>${esc(yr.ad)} tarifleri hazırlanıyor</h2>
+      <p>Bu yörenin tarifleri özenle yazılıyor, çok yakında burada olacak. O zamana kadar <a href="/yoreler/ege.html" style="color:var(--accent); font-weight:700;">Ege mutfağına</a> göz atabilirsiniz.</p>
     </div>`}
   </div>
 </section>`;
@@ -348,8 +351,8 @@ function regionPage(yr) {
 }
 
 function regionsIndexPage() {
-  const title = "Yöreler | Türkiye'nin Yemek Kitabı — yemektariflerimiz";
-  const description = "Karadeniz'den Ege'ye, Güneydoğu'dan Marmara'ya — Türkiye'nin 7 coğrafi bölgesinin mutfağını bölüm bölüm keşfedin.";
+  const title = "Yöreler | yemektariflerimiz";
+  const description = "Karadeniz'den Ege'ye, Güneydoğu'dan Marmara'ya — Türkiye'nin 7 coğrafi bölgesinin mutfağını tek tek keşfedin.";
   const canonicalPath = "/yoreler.html";
 
   const body = `${breadcrumb([{ label: "Ana Sayfa", href: "/" }, { label: "Yöreler" }])}
@@ -358,16 +361,15 @@ function regionsIndexPage() {
   <div class="container">
     <div class="section-head">
       <div>
-        <span class="eyebrow">Kitabın Bölümleri</span>
+        <span class="eyebrow">Yöreler</span>
         <h1>Yöresine göre keşfet</h1>
-        <p>Her bölge, kendi hikayesi ve malzemeleriyle kitabımızda ayrı bir bölüm.</p>
+        <p>Her bölgenin kendine özgü malzemeleri ve tarifleri var.</p>
       </div>
     </div>
     <div class="regions-grid">
       ${yoreler.map((y) => {
         const count = tariflerByYore(y.slug).length;
         return `<a class="region-card" href="/yoreler/${y.slug}.html" style="--region-color:${y.renk}">
-        <span class="region-no">${esc(y.bolumNo)}</span>
         <h3>${esc(y.ad)}</h3>
         <span class="count">${count ? count + " tarif" : "yakında"}</span>
       </a>`;
@@ -381,7 +383,7 @@ function regionsIndexPage() {
 
 function recipesIndexPage() {
   const title = "Tüm Tarifler | yemektariflerimiz";
-  const description = "yemektariflerimiz kitabındaki tüm yöresel tarifler tek sayfada — hikayesiyle, adım adım anlatımla.";
+  const description = "yemektariflerimiz'deki tüm yöresel tarifler tek sayfada — hikayesiyle, adım adım anlatımla.";
   const canonicalPath = "/tarifler.html";
 
   const body = `${breadcrumb([{ label: "Ana Sayfa", href: "/" }, { label: "Tarifler" }])}
@@ -390,7 +392,7 @@ function recipesIndexPage() {
   <div class="container">
     <div class="section-head">
       <div>
-        <span class="eyebrow">Sayfaları Çevirin</span>
+        <span class="eyebrow">Öne Çıkanlar</span>
         <h1>Tüm tarifler</h1>
         <p>${tarifler.length} tarif yayında, her hafta yenileri ekleniyor.</p>
       </div>

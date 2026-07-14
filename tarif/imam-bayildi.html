@@ -71,33 +71,63 @@
         <div class="recipe-meta-row">
           <span class="pill">⏱ 1 sa 10 dk</span>
           <span class="pill">👤 Kolay</span>
-          <span class="pill">🍽 4 kişilik</span>
+          <div class="pill serving-adjust" id="servingAdjust" data-base="4">
+            <button type="button" id="servMinus" aria-label="Porsiyonu azalt">−</button>
+            🍽 <span id="servCount">4</span> kişilik
+            <button type="button" id="servPlus" aria-label="Porsiyonu artır">+</button>
+          </div>
           <button class="pill pill-action" id="historyOpen">📖 Tarihçesi</button>
           <button class="pill pill-action pill-gold" id="tipsOpen">💡 Püf Noktaları</button>
         </div>
       </div>
       <div class="recipe-header-photo">
         <div class="recipe-header-photo-inner">
-          <span class="page-no">s. 12</span>
           <img src="/assets/tarifler/imam-bayildi.webp" alt="Tabakta servis edilmiş, domates ve biberle süslenmiş imam bayıldı" loading="eager">
+          <a class="photo-credit-badge" href="https://commons.wikimedia.org/wiki/File:Imambayildi_plate.jpg" target="_blank" rel="noopener noreferrer" title="Fotoğraf: E4024 · Wikimedia Commons, CC BY-SA 4.0" aria-label="Fotoğraf kaynağı: E4024, Wikimedia Commons, CC BY-SA 4.0">©</a>
         </div>
-        <p class="photo-credit">Fotoğraf: E4024 · <a href="https://commons.wikimedia.org/wiki/File:Imambayildi_plate.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>, CC BY-SA 4.0</p>
       </div>
     </div>
 
     <div class="recipe-columns">
       <div>
         <h2>Malzemeler</h2>
-        <ul class="ingredient-list">
-          <li>6 adet orta boy patlıcan</li>
-          <li>1 adet iri kuru soğan</li>
-          <li>3-4 diş sarımsak</li>
-          <li>3 adet domates</li>
-          <li>1 adet yeşil sivri biber</li>
-          <li>5-6 yemek kaşığı zeytinyağı</li>
-          <li>1 tatlı kaşığı toz şeker</li>
-          <li>1 tutam maydanoz</li>
-          <li>Tuz, karabiber</li>
+        <ul class="ingredient-list" id="ingredientList">
+          <li>
+            <input type="checkbox" id="ing-0" class="ing-check">
+            <label for="ing-0" class="ing-text" data-orig="6 adet orta boy patlıcan">6 adet orta boy patlıcan</label>
+          </li>
+          <li>
+            <input type="checkbox" id="ing-1" class="ing-check">
+            <label for="ing-1" class="ing-text" data-orig="1 adet iri kuru soğan">1 adet iri kuru soğan</label>
+          </li>
+          <li>
+            <input type="checkbox" id="ing-2" class="ing-check">
+            <label for="ing-2" class="ing-text" data-orig="3-4 diş sarımsak">3-4 diş sarımsak</label>
+          </li>
+          <li>
+            <input type="checkbox" id="ing-3" class="ing-check">
+            <label for="ing-3" class="ing-text" data-orig="3 adet domates">3 adet domates</label>
+          </li>
+          <li>
+            <input type="checkbox" id="ing-4" class="ing-check">
+            <label for="ing-4" class="ing-text" data-orig="1 adet yeşil sivri biber">1 adet yeşil sivri biber</label>
+          </li>
+          <li>
+            <input type="checkbox" id="ing-5" class="ing-check">
+            <label for="ing-5" class="ing-text" data-orig="5-6 yemek kaşığı zeytinyağı">5-6 yemek kaşığı zeytinyağı</label>
+          </li>
+          <li>
+            <input type="checkbox" id="ing-6" class="ing-check">
+            <label for="ing-6" class="ing-text" data-orig="1 tatlı kaşığı toz şeker">1 tatlı kaşığı toz şeker</label>
+          </li>
+          <li>
+            <input type="checkbox" id="ing-7" class="ing-check">
+            <label for="ing-7" class="ing-text" data-orig="1 tutam maydanoz">1 tutam maydanoz</label>
+          </li>
+          <li>
+            <input type="checkbox" id="ing-8" class="ing-check">
+            <label for="ing-8" class="ing-text" data-orig="Tuz, karabiber">Tuz, karabiber</label>
+          </li>
         </ul>
       </div>
       <div>
@@ -120,7 +150,7 @@
   <div class="container">
     <div class="section-head">
       <div>
-        <span class="eyebrow">Ege Bölümünden</span>
+        <span class="eyebrow">Ege Mutfağından</span>
         <h2>Bunlar da hoşunuza gidebilir</h2>
       </div>
       <a href="/yoreler/ege.html" class="see-all">Ege'nin tüm tarifleri →</a>
@@ -128,9 +158,7 @@
     <div class="recipes-grid">
       <article class="recipe-card reveal in">
         <a href="/tarif/zeytinyagli-enginar.html" style="display:block;">
-          <div class="recipe-media" style="background-image:url('/assets/tarifler/zeytinyagli-enginar.webp'); background-size:cover; background-position:center;">
-            <span class="page-no">s. 27</span>
-          </div>
+          <div class="recipe-media" style="background-image:url('/assets/tarifler/zeytinyagli-enginar.webp'); background-size:cover; background-position:center;"></div>
         </a>
         <div class="recipe-body">
           <span class="recipe-region">Ege</span>
@@ -144,9 +172,7 @@
       </article>
       <article class="recipe-card reveal in">
         <a href="/tarif/midye-dolma.html" style="display:block;">
-          <div class="recipe-media" style="background-image:url('/assets/tarifler/midye-dolma.webp'); background-size:cover; background-position:center;">
-            <span class="page-no">s. 34</span>
-          </div>
+          <div class="recipe-media" style="background-image:url('/assets/tarifler/midye-dolma.webp'); background-size:cover; background-position:center;"></div>
         </a>
         <div class="recipe-body">
           <span class="recipe-region">Ege</span>
@@ -160,9 +186,7 @@
       </article>
       <article class="recipe-card reveal in">
         <a href="/tarif/boyoz.html" style="display:block;">
-          <div class="recipe-media" style="background-image:url('/assets/tarifler/boyoz.webp'); background-size:cover; background-position:center;">
-            <span class="page-no">s. 41</span>
-          </div>
+          <div class="recipe-media" style="background-image:url('/assets/tarifler/boyoz.webp'); background-size:cover; background-position:center;"></div>
         </a>
         <div class="recipe-body">
           <span class="recipe-region">Ege</span>

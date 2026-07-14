@@ -88,6 +88,45 @@
   wireModal("historyOpen", "historyModal", "historyClose");
   wireModal("tipsOpen", "tipsModal", "tipsClose");
 
+  /* Porsiyon hesaplayıcı — malzeme miktarlarındaki baştaki sayıyı ölçekler */
+  function scaleIngredientText(text, factor) {
+    var m = text.match(/^(\d+(?:[.,]\d+)?)(?:-(\d+(?:[.,]\d+)?))?(\s.*)$/);
+    if (!m) return text;
+    function fmt(raw) {
+      var n = parseFloat(raw.replace(",", ".")) * factor;
+      var rounded = n < 10 ? Math.round(n * 2) / 2 : Math.round(n);
+      if (rounded <= 0) rounded = n < 10 ? 0.5 : 1;
+      return (rounded % 1 === 0) ? String(rounded) : String(rounded).replace(".", ",");
+    }
+    var out = fmt(m[1]);
+    if (m[2]) out += "-" + fmt(m[2]);
+    return out + m[3];
+  }
+
+  var servingWrap = document.getElementById("servingAdjust");
+  if (servingWrap) {
+    var base = parseFloat(servingWrap.getAttribute("data-base"));
+    var current = base;
+    var servCount = document.getElementById("servCount");
+    var servMinus = document.getElementById("servMinus");
+    var servPlus = document.getElementById("servPlus");
+    var ingLabels = document.querySelectorAll("#ingredientList .ing-text");
+    function renderServings() {
+      servCount.textContent = current % 1 === 0 ? current : String(current).replace(".", ",");
+      var factor = current / base;
+      ingLabels.forEach(function (el) {
+        el.textContent = scaleIngredientText(el.getAttribute("data-orig"), factor);
+      });
+    }
+    servMinus.addEventListener("click", function () {
+      if (current > (base < 4 ? 1 : 2)) { current -= base < 4 ? 1 : 2; renderServings(); }
+    });
+    servPlus.addEventListener("click", function () {
+      current += base < 4 ? 1 : 2;
+      renderServings();
+    });
+  }
+
   /* Search — filters visible recipe cards by name/region (base demo) */
   var searchForm = document.getElementById("searchForm");
   var searchInput = document.getElementById("searchInput");
