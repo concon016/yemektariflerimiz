@@ -303,12 +303,15 @@ p { line-height: 1.7; margin: 0 0 1em; color: var(--ink-muted); }
 
 /* ---------- Region chapters ---------- */
 .regions-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 16px;
 }
 .region-card {
   position: relative;
+  flex: 1 1 150px;
+  max-width: 220px;
   padding: 22px 18px;
   border-radius: var(--radius);
   background: var(--surface);
@@ -334,10 +337,12 @@ p { line-height: 1.7; margin: 0 0 1em; color: var(--ink-muted); }
 
 /* ---------- Recipe cards ---------- */
 .recipes-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 24px;
 }
+.recipes-grid .recipe-card { flex: 1 1 260px; max-width: 340px; }
 
 .subcat-block { margin-bottom: 52px; }
 .subcat-block:last-child { margin-bottom: 0; }
@@ -410,11 +415,14 @@ p { line-height: 1.7; margin: 0 0 1em; color: var(--ink-muted); }
 
 /* ---------- Feature strip ---------- */
 .features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 22px;
 }
 .feature-card {
+  flex: 1 1 240px;
+  max-width: 280px;
   padding: 28px 24px;
   border-radius: var(--radius);
   background: var(--surface);
