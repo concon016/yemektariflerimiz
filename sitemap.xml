@@ -43,7 +43,7 @@
   <url>
     <loc>https://yemektariflerimiz.vercel.app/kategoriler/tatlilar.html</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://yemektariflerimiz.vercel.app/kategoriler/sandvicler.html</loc>
@@ -157,6 +157,21 @@
   </url>
   <url>
     <loc>https://yemektariflerimiz.vercel.app/tarif/beyti-kebap.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yemektariflerimiz.vercel.app/tarif/baklava.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yemektariflerimiz.vercel.app/tarif/sutlac.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://yemektariflerimiz.vercel.app/tarif/kunefe.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
