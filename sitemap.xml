@@ -26,12 +26,12 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yemektariflerimiz.vercel.app/kategoriler/ana-yemekler.html</loc>
+    <loc>https://yemektariflerimiz.vercel.app/kategoriler/kebap-izgara.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yemektariflerimiz.vercel.app/kategoriler/karbonhidratlar.html</loc>
+    <loc>https://yemektariflerimiz.vercel.app/kategoriler/hamur-isleri.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -46,7 +46,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://yemektariflerimiz.vercel.app/kategoriler/sandvicler.html</loc>
+    <loc>https://yemektariflerimiz.vercel.app/kategoriler/sokak-lezzetleri.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>

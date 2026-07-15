@@ -387,6 +387,23 @@ p { line-height: 1.7; margin: 0 0 1em; color: var(--ink-muted); }
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 24px;
 }
+
+.subcat-block { margin-bottom: 52px; }
+.subcat-block:last-child { margin-bottom: 0; }
+.subcat-heading {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 0 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+}
+.subcat-empty {
+  color: var(--ink-muted);
+  font-size: 15px;
+  padding: 40px 0;
+  text-align: center;
+}
 .recipe-card {
   background: var(--surface);
   border: 1px solid var(--line);
