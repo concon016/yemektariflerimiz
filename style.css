@@ -212,7 +212,7 @@ p { line-height: 1.7; margin: 0 0 1em; color: var(--ink-muted); }
   margin-bottom: 20px;
 }
 .hero h1 em { color: var(--accent); font-style: italic; }
-.hero p.lead { font-size: 17.5px; max-width: 46ch; }
+.hero p.lead { font-size: 17.5px; max-width: 46ch; margin-left: auto; margin-right: auto; }
 
 .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 28px; }
 
@@ -449,14 +449,14 @@ p { line-height: 1.7; margin: 0 0 1em; color: var(--ink-muted); }
   color: #fff;
   padding: 56px 48px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  gap: 32px;
-  flex-wrap: wrap;
+  text-align: center;
+  gap: 20px;
   box-shadow: var(--shadow-md);
 }
 .cta h2 { color: #fff; font-size: 28px; margin-bottom: 8px; }
-.cta p { color: rgba(255,255,255,0.85); margin: 0; max-width: 46ch; }
+.cta p { color: rgba(255,255,255,0.85); margin: 0 auto; max-width: 46ch; }
 .cta .btn-outline { background: rgba(255,255,255,0.1); color: #fff; border-color: rgba(255,255,255,0.5); }
 .cta .btn-outline:hover { background: #fff; color: var(--accent); }
 
