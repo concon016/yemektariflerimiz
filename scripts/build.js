@@ -80,8 +80,8 @@ function nav(active) {
     </a>
     <ul class="nav-links" id="navMobile">
       ${item("/", "Ana Sayfa", "home")}
-      ${item("/kategoriler.html", "Kategoriler", "kategoriler")}
-      ${item("/tarifler.html", "Tarifler", "tarifler")}
+      ${item("/kategoriler", "Kategoriler", "kategoriler")}
+      ${item("/tarifler", "Tarifler", "tarifler")}
       ${item("/#about", "Hakkında", "about")}
       ${item("/#contact", "İletişim", "contact")}
     </ul>
@@ -112,15 +112,15 @@ function footer() {
       <div>
         <h4>Keşfet</h4>
         <ul>
-          <li><a href="/kategoriler.html">Kategoriler</a></li>
-          <li><a href="/tarifler.html">Tarifler</a></li>
+          <li><a href="/kategoriler">Kategoriler</a></li>
+          <li><a href="/tarifler">Tarifler</a></li>
           <li><a href="/#about">Hakkında</a></li>
         </ul>
       </div>
       <div>
         <h4>Kategoriler</h4>
         <ul>
-          ${kategoriler.slice(0, 3).map((k) => `<li><a href="/kategoriler/${k.slug}.html">${k.ad}</a></li>`).join("\n          ")}
+          ${kategoriler.slice(0, 3).map((k) => `<li><a href="/kategoriler/${k.slug}">${k.ad}</a></li>`).join("\n          ")}
         </ul>
       </div>
       <div>
@@ -180,7 +180,7 @@ function recipePage(tarif) {
   const kat = kategoriGetir(tarif.grup);
   const title = `${tarif.ad} Tarifi Nasıl Yapılır? Malzemeleri ve Yapılışı | yemektariflerimiz`;
   const description = `${tarif.ozet} Malzemeler, adım adım yapılışı ve tarihçesi burada.`;
-  const canonicalPath = `/tarif/${tarif.slug}.html`;
+  const canonicalPath = `/tarif/${tarif.slug}`;
 
   const recipeSchema = {
     "@context": "https://schema.org",
@@ -217,7 +217,7 @@ function recipePage(tarif) {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Ana Sayfa", item: SITE_URL + "/" },
-      { "@type": "ListItem", position: 2, name: kat.ad, item: SITE_URL + `/kategoriler/${kat.slug}.html` },
+      { "@type": "ListItem", position: 2, name: kat.ad, item: SITE_URL + `/kategoriler/${kat.slug}` },
       { "@type": "ListItem", position: 3, name: tarif.ad, item: SITE_URL + canonicalPath },
     ],
   };
@@ -226,7 +226,7 @@ function recipePage(tarif) {
 
   const body = `${breadcrumb([
     { label: "Ana Sayfa", href: "/" },
-    { label: kat.ad, href: `/kategoriler/${kat.slug}.html` },
+    { label: kat.ad, href: `/kategoriler/${kat.slug}` },
     { label: tarif.ad },
   ])}
 
@@ -289,7 +289,7 @@ ${related.length ? `<section class="section section-alt related-recipes">
         <span class="eyebrow">${esc(kat.ad)}</span>
         <h2>Bunlar da hoşunuza gidebilir</h2>
       </div>
-      <a href="/kategoriler/${kat.slug}.html" class="see-all">${esc(kat.ad)} tariflerinin tümü →</a>
+      <a href="/kategoriler/${kat.slug}" class="see-all">${esc(kat.ad)} tariflerinin tümü →</a>
     </div>
     <div class="recipes-grid">
       ${related.map((r) => recipeCard(r)).join("\n      ")}
@@ -401,12 +401,12 @@ ${tarif.besin ? `<div class="modal-overlay" id="nutritionModal">
 
 function recipeCard(tarif) {
   return `<article class="recipe-card reveal in">
-        <a href="/tarif/${tarif.slug}.html" style="display:block;">
+        <a href="/tarif/${tarif.slug}" style="display:block;">
           <div class="recipe-media" style="background-image:url('${tarif.gorsel}'); background-size:cover; background-position:center;"></div>
         </a>
         <div class="recipe-body">
           <span class="recipe-region">${esc(kategoriGetir(tarif.grup).ad)}</span>
-          <h3><a href="/tarif/${tarif.slug}.html">${esc(tarif.ad)}</a></h3>
+          <h3><a href="/tarif/${tarif.slug}">${esc(tarif.ad)}</a></h3>
           <p style="margin:0; font-size:14px;">${esc(tarif.ozet)}</p>
         </div>
       </article>`;
@@ -418,7 +418,7 @@ function categoryPage(kat) {
   const recs = tariflerByKategori(kat.slug);
   const title = `${kat.ad} Tarifleri | yemektariflerimiz`;
   const description = kat.metaAciklama;
-  const canonicalPath = `/kategoriler/${kat.slug}.html`;
+  const canonicalPath = `/kategoriler/${kat.slug}`;
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -445,7 +445,7 @@ function categoryPage(kat) {
     </div>` : `<div class="empty-state">
       <span class="emoji">🍳</span>
       <h2>${esc(kat.ad)} tarifleri hazırlanıyor</h2>
-      <p>Bu kategorinin tarifleri özenle yazılıyor, çok yakında burada olacak. O zamana kadar <a href="/kategoriler/soguk-mezeler.html" style="color:var(--accent); font-weight:700;">Soğuk Mezeler</a> kategorisine göz atabilirsiniz.</p>
+      <p>Bu kategorinin tarifleri özenle yazılıyor, çok yakında burada olacak. O zamana kadar <a href="/kategoriler/soguk-mezeler" style="color:var(--accent); font-weight:700;">Soğuk Mezeler</a> kategorisine göz atabilirsiniz.</p>
     </div>`}
   </div>
 </section>`;
@@ -456,7 +456,7 @@ function categoryPage(kat) {
 function categoriesIndexPage() {
   const title = "Kategoriler | yemektariflerimiz";
   const description = "Çorbalar, ara sıcaklar, ana yemekler, karbonhidratlar, soğuk mezeler ve tatlılar — yemek türüne göre tarifleri keşfedin.";
-  const canonicalPath = "/kategoriler.html";
+  const canonicalPath = "/kategoriler";
 
   const body = `${breadcrumb([{ label: "Ana Sayfa", href: "/" }, { label: "Kategoriler" }])}
 
@@ -472,7 +472,7 @@ function categoriesIndexPage() {
     <div class="regions-grid">
       ${kategoriler.map((k) => {
         const count = tariflerByKategori(k.slug).length;
-        return `<a class="region-card" href="/kategoriler/${k.slug}.html" style="--region-color:${k.renk}">
+        return `<a class="region-card" href="/kategoriler/${k.slug}" style="--region-color:${k.renk}">
         <h3>${esc(k.ad)}</h3>
         <span class="count">${count ? count + " tarif" : "yakında"}</span>
       </a>`;
@@ -487,7 +487,7 @@ function categoriesIndexPage() {
 function recipesIndexPage() {
   const title = "Tüm Tarifler | yemektariflerimiz";
   const description = "yemektariflerimiz'deki tüm yöresel tarifler tek sayfada — hikayesiyle, adım adım anlatımla.";
-  const canonicalPath = "/tarifler.html";
+  const canonicalPath = "/tarifler";
 
   const body = `${breadcrumb([{ label: "Ana Sayfa", href: "/" }, { label: "Tarifler" }])}
 
@@ -514,10 +514,10 @@ function recipesIndexPage() {
 function buildSitemap() {
   const urls = [
     { loc: "/", priority: "1.0" },
-    { loc: "/kategoriler.html", priority: "0.8" },
-    { loc: "/tarifler.html", priority: "0.8" },
-    ...kategoriler.map((k) => ({ loc: `/kategoriler/${k.slug}.html`, priority: tariflerByKategori(k.slug).length ? "0.7" : "0.4" })),
-    ...tarifler.map((t) => ({ loc: `/tarif/${t.slug}.html`, priority: "0.9" })),
+    { loc: "/kategoriler", priority: "0.8" },
+    { loc: "/tarifler", priority: "0.8" },
+    ...kategoriler.map((k) => ({ loc: `/kategoriler/${k.slug}`, priority: tariflerByKategori(k.slug).length ? "0.7" : "0.4" })),
+    ...tarifler.map((t) => ({ loc: `/tarif/${t.slug}`, priority: "0.9" })),
   ];
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
