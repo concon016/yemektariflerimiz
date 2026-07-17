@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://yemektariflerimiz.vercel.app/sitemap.xml
+Sitemap: https://yemektariflerimiz.com/sitemap.xml

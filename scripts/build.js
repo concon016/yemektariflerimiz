@@ -8,7 +8,7 @@ const fs = require("fs");
 const path = require("path");
 
 const ROOT = path.join(__dirname, "..");
-const SITE_URL = "https://yemektariflerimiz.vercel.app";
+const SITE_URL = "https://yemektariflerimiz.com";
 
 const tarifler = require("../data/tarifler.js");
 const kategoriler = require("../data/kategoriler.js");
