@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-BXQPFHTVQ0"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag("js", new Date());
-  gtag("config", "G-BXQPFHTVQ0");
-</script>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Düğün Çorbası Tarifi Nasıl Yapılır? Malzemeleri ve Yapılışı | yemektariflerimiz</title>
@@ -26,7 +18,8 @@
 <script>
   (function () {
     var saved = localStorage.getItem("theme");
-    document.documentElement.setAttribute("data-theme", saved || "light");
+    var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    document.documentElement.setAttribute("data-theme", saved || (prefersDark ? "dark" : "light"));
   })();
 </script>
 <link rel="stylesheet" href="/style.css">
@@ -47,6 +40,7 @@
       <li><a href="/kategoriler">Kategoriler</a></li>
       <li><a href="/tarifler" class="active">Tarifler</a></li>
       <li><a href="/#about">Hakkında</a></li>
+      <li><a href="/#contact">İletişim</a></li>
     </ul>
     <div class="nav-right">
       <button class="theme-toggle" id="themeToggle" role="switch" aria-checked="false" aria-label="Karanlık modu değiştir">
@@ -317,18 +311,34 @@
           <img src="/assets/favicon.svg" alt="">
           yemek<span class="logo-dim">tariflerimiz</span>
         </a>
-        <p>Türk mutfağının tarifleri. Hikayesiyle, adım adım anlatımla, yemek türüne göre.</p>
+        <p>Türkiye'nin yöresel tarifleri. Hikayesiyle, adım adım tarifleriyle Anadolu mutfağı.</p>
       </div>
       <div>
-        <h4>Yasal</h4>
+        <h4>Keşfet</h4>
         <ul>
-          <li><a href="/gizlilik">Gizlilik Politikası</a></li>
+          <li><a href="/kategoriler">Kategoriler</a></li>
+          <li><a href="/tarifler">Tarifler</a></li>
+          <li><a href="/#about">Hakkında</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kategoriler</h4>
+        <ul>
+          <li><a href="/kategoriler/corbalar">Çorbalar</a></li>
+          <li><a href="/kategoriler/ara-sicaklar">Ara Sıcaklar</a></li>
+          <li><a href="/kategoriler/ana-yemekler">Ana Yemekler</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>İletişim</h4>
+        <ul>
+          <li><a href="mailto:info@yemektariflerimiz.com">info@yemektariflerimiz.com</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
       <span>© 2026 yemektariflerimiz. Tüm hakları saklıdır.</span>
-      <span>Bu site <a href="https://canwebco.com" target="_blank" rel="noopener">canwebco</a> tarafından tasarlandı</span>
+      <span>canwebco tarafından tasarlandı</span>
     </div>
   </div>
 </footer>
