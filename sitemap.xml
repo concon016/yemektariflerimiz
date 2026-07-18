@@ -46,6 +46,16 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://yemektariflerimiz.com/kategoriler/icecekler</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://yemektariflerimiz.com/kategoriler/salatalar</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://yemektariflerimiz.com/kategoriler/sokak-lezzetleri</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
