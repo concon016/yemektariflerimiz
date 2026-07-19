@@ -151,6 +151,13 @@ function jsonLd(obj) {
   return `<script type="application/ld+json">${JSON.stringify(obj)}</script>`;
 }
 
+function stepName(text) {
+  if (text.length <= 60) return text;
+  const cut = text.slice(0, 60);
+  const lastSpace = cut.lastIndexOf(" ");
+  return cut.slice(0, lastSpace > 30 ? lastSpace : 60).trimEnd() + "...";
+}
+
 function page(title, description, canonicalPath, active, bodyHtml, extraHead) {
   return `<!DOCTYPE html>
 <html lang="tr">
@@ -198,7 +205,10 @@ function recipePage(tarif) {
     recipeInstructions: tarif.adimlar.map((s, i) => ({
       "@type": "HowToStep",
       position: i + 1,
+      name: stepName(s),
       text: s,
+      url: `${SITE_URL}${canonicalPath}#yapilisi`,
+      image: [SITE_URL + tarif.gorsel],
     })),
   };
   if (tarif.besin) {
@@ -273,7 +283,7 @@ function recipePage(tarif) {
         </ul>
       </div>
       <div>
-        <h2>Yapılışı</h2>
+        <h2 id="yapilisi">Yapılışı</h2>
         <ol class="step-list">
           ${groupSteps(tarif.adimlar, tarif.adimGruplari).map((s) => `<li><p>${esc(s)}</p></li>`).join("\n          ")}
         </ol>
